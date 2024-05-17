@@ -1,0 +1,37 @@
+Tiêu đề:
+Hands-On Artificial Intelligence for Cybersecurity: Implement smart AI systems for preventing cyber attacks and detecting threats and network anomalies
+Mô tả:
+Build smart cybersecurity systems with the power of machine learning and deep learning to protect your corporate assets
+
+Key Features
+- Identify and predict security threats using artificial intelligence
+- Develop intelligent systems that can detect unusual and suspicious patterns and attacks
+- Learn how to test the effectiveness of your AI cybersecurity algorithms and tools
+Book Description
+Today's organizations spend billions of dollars globally on cybersecurity. Artificial intelligence has emerged as a great solution for building smarter and safer security systems that allow you to predict and detect suspicious network activity, such as phishing or unauthorized intrusions.
+
+This cybersecurity book presents and demonstrates popular and successful AI approaches and models that you can adapt to detect potential attacks and protect your corporate systems. You'll learn about the role of machine learning and neural networks, as well as deep learning in cybersecurity, and you'll also learn how you can infuse AI capabilities into building smart defensive mechanisms. As you advance, you'll be able to apply these strategies across a variety of applications, including spam filters, network intrusion detection, botnet detection, and secure authentication.
+
+By the end of this book, you'll be ready to develop intelligent systems that can detect unusual and suspicious patterns and attacks, thereby developing strong network security defenses using AI.
+
+What you will learn
+- Detect email threats such as spamming and phishing using AI
+- Categorize APT, zero-days, and polymorphic malware samples
+- Overcome antivirus limits in threat detection
+- Predict network intrusions and detect anomalies with machine learning
+- Verify the strength of biometric authentication procedures with deep learning
+- Evaluate cybersecurity strategies and learn how you can improve them
+Who this book is for
+If you're a cybersecurity professional or ethical hacker who wants to build intelligent systems using the power of machine learning and AI, you'll find this book useful. Familiarity with cybersecurity concepts and knowledge of Python programming is essential to get the most out of this book.
+
+Table of Contents
+1. A Gentle Intro to AI for Cybersecurity Professionals
+2. Setting your AI for Cybersecurity Arsenal
+3. Ham or Spam? Detecting Email Cybersecurity Threats with AI
+4. Malware Threats Detection
+5. Network Anomaly Detection with AI
+6. Securing User Authentication
+7. Fraud Prevention with Cloud AI Solutions
+8. GANS: Attack and Defense
+9. Evaluating Algorithms
+10. Assessing your AI Arsenal

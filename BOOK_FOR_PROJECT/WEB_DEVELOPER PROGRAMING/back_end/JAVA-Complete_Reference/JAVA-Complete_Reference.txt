@@ -1,0 +1,4 @@
+"Java: The Complete Reference" là một cuốn sách tổng quan và chi tiết về ngôn ngữ lập trình Java. 
+Nó cung cấp một bản cập nhật đầy đủ về ngôn ngữ Java, bao gồm cả các tính năng mới nhất và các chuẩn mới nhất của Java.
+ Cuốn sách bao gồm cả những khái niệm cơ bản và những chủ đề nâng cao như đa luồng, lập trình mạng, lập trình giao diện người dùng,
+  và nhiều hơn nữa.

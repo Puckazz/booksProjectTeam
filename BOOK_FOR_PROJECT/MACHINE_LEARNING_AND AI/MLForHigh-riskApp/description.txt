@@ -1,0 +1,11 @@
+Tiêu đề:
+Machine Learning for High-Risk Applications: Approaches to Responsible AI
+Mô tả:
+The past decade has witnessed the broad adoption of artificial intelligence and machine learning (AI/ML) technologies. However, a lack of oversight in their widespread implementation has resulted in some incidents and harmful outcomes that could have been avoided with proper risk management. Before we can realize AI/ML's true benefit, practitioners must understand how to mitigate its risks.
+
+This book describes approaches to responsible AI—a holistic framework for improving AI/ML technology, business processes, and cultural competencies that builds on best practices in risk management, cybersecurity, data privacy, and applied social science. Authors Patrick Hall, James Curtis, and Parul Pandey created this guide for data scientists who want to improve real-world AI/ML system outcomes for organizations, consumers, and the public.
+
+- Learn technical approaches for responsible AI across explainability, model validation and debugging, bias management, data privacy, and ML security
+- Learn how to create a successful and impactful AI risk management practice
+- Get a basic guide to existing standards, laws, and assessments for adopting AI technologies, including the new NIST AI Risk Management Framework
+- Engage with interactive resources on GitHub and Colab

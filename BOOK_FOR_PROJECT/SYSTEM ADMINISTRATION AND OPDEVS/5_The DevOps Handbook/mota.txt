@@ -1,0 +1,1 @@
+5.The DevOps Handbook by Gene Kim, Jez Humble, Patrick Debois, and John Willis - This book is a comprehensive guide to DevOps. It covers a wide range of topics, including continuous integration, continuous delivery, infrastructure as code, and configuration management.

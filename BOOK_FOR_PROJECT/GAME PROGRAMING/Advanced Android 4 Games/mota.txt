@@ -1,0 +1,11 @@
+Advanced Android 4 Games là phiên bản sách lập trình game nâng cao hơn của Beginning Android 4 Games Development. Tài liệu sẽ mang đến cho bạn những kiến thức và kỹ năng nâng cao về phát triển ứng dụng game trên nền tảng Android. Cuốn sách này cung cấp kiến thức và kỹ năng cần thiết như:
+
+• Tích hợp các phông chữ độc đáo vào sản phẩm.
+
+* Sử dụng các API liên quan đến giao diện người dùng và trải nghiệm người dùng.
+
++ Xử lý mã đa điểm chạm (multi-touch code).
+
+▸ Hiểu và triển khai multi-tasking để ứng dụng của bạn hoạt động mượt mà và hiệu quả hơn.
+
+• Tối ưu hóa hiệu suất ứng dụng của bạn để đảm bảo nó chạy nhanh hơn

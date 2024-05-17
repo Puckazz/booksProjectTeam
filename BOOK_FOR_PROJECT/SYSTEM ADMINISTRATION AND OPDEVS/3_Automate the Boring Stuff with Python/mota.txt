@@ -1,0 +1,2 @@
+
+3.Automate the Boring Stuff with Python by Al Sweigart - This book is a great introduction to Python scripting for system administrators. It will teach you how to automate tasks that you do on a regular basis, which can save you a lot of time and effort.

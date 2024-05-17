@@ -1,0 +1,1 @@
+Cuốn sách này là một tài liệu tham khảo nhỏ gọn về jQuery, cung cấp một tóm tắt về cú pháp và chức năng của thư viện jQuery. Với các ví dụ minh họa và hướng dẫn sử dụng, cuốn sách này là một nguồn thông tin hữu ích cho các nhà phát triển web muốn nắm vững và sử dụng jQuery một cách hiệu quả.

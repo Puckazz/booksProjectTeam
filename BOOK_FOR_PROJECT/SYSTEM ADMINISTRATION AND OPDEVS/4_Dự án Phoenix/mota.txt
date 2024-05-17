@@ -1,0 +1,1 @@
+4.The Phoenix Project by Gene Kim, Kevin Behr, and George Spafford - This book is a novel that tells the story of a fictional IT organization that is struggling to deliver software. It is a great introduction to the DevOps philosophy and how it can help organizations improve their software delivery process.

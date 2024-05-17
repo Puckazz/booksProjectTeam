@@ -1,0 +1,1 @@
+"Node.js Design Patterns" là một cuốn sách hướng dẫn chi tiết về cách sử dụng các mẫu thiết kế trong Node.js để xây dựng các ứng dụng web hiệu quả và dễ bảo trì. Cuốn sách này giúp bạn hiểu rõ về cách sử dụng các mẫu thiết kế phổ biến như Singleton, Factory, Observer, và nhiều hơn nữa để giải quyết các vấn đề phức tạp trong Node.js.

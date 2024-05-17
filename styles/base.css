@@ -1,0 +1,67 @@
+:root{
+    --color-one : #EEEEEE;
+    --color-text : #000;
+}
+
+.container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+*{
+    
+    font-family : 'Roboto', sans-serif;
+   
+
+}
+input{
+    outline: none;
+    border: none;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.button1{
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #346751;
+    border-radius: 10px ;
+}
+
+@media (max-width:1200px) {
+    .container{
+        max-width: 960px;
+    }
+}
+
+@media (max-width:992px) {
+    .container{
+        max-width: 720px;
+    }
+    .nav .inner-search input {
+        width: 100%;
+    }
+}
+
+@media (max-width:768px) {
+    .container{
+        max-width: 540px;
+    }
+}
+
+@media (max-width:576px) {
+    .container{
+        max-width: 100%;
+        padding-left: 0;
+    }
+}

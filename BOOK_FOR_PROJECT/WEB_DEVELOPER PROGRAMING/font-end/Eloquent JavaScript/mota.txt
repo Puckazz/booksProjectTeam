@@ -1,0 +1,4 @@
+
+With this book, you have the opportunity to learn JavaScript effectively and clearly. This work is packed with excellent explanations of programming concepts and how they apply in JavaScript. To aid comprehension, theoretical explanations are illustrated with very interesting practical examples, ranging from simple to more complex depending on the topic. Thus, you will learn how to create a triangle, build a table, a robot, a programming language, and even a pixel art editor.
+
+Clear and precise explanations are provided on a particularly challenging programming topic: data structures. As expected, a chapter is also dedicated to error and bug resolution—an essential tool. Finally, the book discusses the performance of code generated in JavaScript.

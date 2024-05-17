@@ -1,0 +1,1 @@
+"PHP and MySQL Web Development" là một tài liệu hướng dẫn toàn diện về việc sử dụng PHP và MySQL để phát triển các ứng dụng web. Cuốn sách này cung cấp một cái nhìn tổng quan về cách sử dụng PHP và MySQL để tạo ra các trang web động, tương tác và dễ bảo trì

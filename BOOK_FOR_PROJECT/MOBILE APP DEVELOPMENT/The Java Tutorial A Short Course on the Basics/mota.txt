@@ -1,0 +1,5 @@
+The Java Tutorial, Sixth Edition, is based on the Java Platform, Standard Edition (Java SE) 8. This revised and updated edition introduces the new features added to the platform, including lambda expressions, default methods, aggregate operations, and more. An accessible and practical guide for programmers of any level, this book focuses on how to use the rich environment provided by Java to build applications, applets, and components.
+
+Expanded coverage includes a chapter on the Date-Time API and a new chapter on annotations, with sections on type annotations and pluggable type systems as well as repeating annotations.
+
+In addition, the updated sections “Security in Rich Internet Applications” and “Guidelines for Securing Rich Internet Applications” address key security topics. The latest deployment best practices are described in the chapter “Deployment in Depth.”

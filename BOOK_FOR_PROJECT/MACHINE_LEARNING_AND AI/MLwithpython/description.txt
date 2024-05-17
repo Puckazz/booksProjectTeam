@@ -1,0 +1,45 @@
+Tiêu đề:
+Interpretable Machine Learning with Python - Second Edition: Build explainable, fair, and robust high-performance models with hands-on, real-world examples
+Mô tả:
+A deep dive into the key aspects and challenges of machine learning interpretability using a comprehensive toolkit, including SHAP, feature importance, and causal inference, to build fairer, safer, and more reliable models.
+
+Purchase of the print or Kindle book includes a free eBook in PDF format.
+
+Key Features
+Interpret real-world data, including cardiovascular disease data and the COMPAS recidivism scores
+Build your interpretability toolkit with global, local, model-agnostic, and model-specific methods
+Analyze and extract insights from complex models from CNNs to BERT to time series models
+Book Description
+Interpretable Machine Learning with Python, Second Edition, brings to light the key concepts of interpreting machine learning models by analyzing real-world data, providing you with a wide range of skills and tools to decipher the results of even the most complex models.
+
+Build your interpretability toolkit with several use cases, from flight delay prediction to waste classification to COMPAS risk assessment scores. This book is full of useful techniques, introducing them to the right use case. Learn traditional methods, such as feature importance and partial dependence plots to integrated gradients for NLP interpretations and gradient-based attribution methods, such as saliency maps.
+
+In addition to the step-by-step code, you'll get hands-on with tuning models and training data for interpretability by reducing complexity, mitigating bias, placing guardrails, and enhancing reliability.
+
+By the end of the book, you'll be confident in tackling interpretability challenges with black-box models using tabular, language, image, and time series data.
+
+What you will learn
+Progress from basic to advanced techniques, such as causal inference and quantifying uncertainty
+Build your skillset from analyzing linear and logistic models to complex ones, such as CatBoost, CNNs, and NLP transformers
+Use monotonic and interaction constraints to make fairer and safer models
+Understand how to mitigate the influence of bias in datasets
+Leverage sensitivity analysis factor prioritization and factor fixing for any model
+Discover how to make models more reliable with adversarial robustness
+Who this book is for
+This book is for data scientists, machine learning developers, machine learning engineers, MLOps engineers, and data stewards who have an increasingly critical responsibility to explain how the artificial intelligence systems they develop work, their impact on decision making, and how they identify and manage bias. It's also a useful resource for self-taught ML enthusiasts and beginners who want to go deeper into the subject matter, though a good grasp of the Python programming language is needed to implement the examples.
+
+Table of Contents
+1. Interpretation, Interpretability and Explainability; and why does it all matter?
+2. Key Concepts of Interpretability
+3. Interpretation Challenges
+4. Global Model-agnostic Interpretation Methods
+5. Local Model-agnostic Interpretation Methods
+6. Anchors and Counterfactual Explanations
+7. Visualizing Convolutional Neural Networks
+8. Interpreting NLP Transformers
+9. Interpretation Methods for Multivariate Forecasting and Sensitivity Analysis
+10. Feature Selection and Engineering for Interpretability
+11. Bias Mitigation and Causal Inference Methods
+12. Monotonic Constraints and Model Tuning for Interpretability
+13. Adversarial Robustness
+14. What's Next for Machine Learning Interpretability?

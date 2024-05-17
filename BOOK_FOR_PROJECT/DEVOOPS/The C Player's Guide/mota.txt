@@ -1,0 +1,3 @@
+he book in your hands is a different kind of programming book. Like an entertaining video game, programming is an often challenging but always rewarding experience. This book shakes off the dusty, dull, dryness of the typical programming book, replacing it with something more exciting and flavorful: a bit of humor, a casual tone, and examples involving dragons and asteroids instead of bank accounts and employees.
+
+And since you learn to program by doing instead of just reading, this book contains over 100 hands-on programming challenges. You will be building software instead of just reading about it. By completing the challenges, you’ll earn experience points, level up, and become a True C# Programmer!

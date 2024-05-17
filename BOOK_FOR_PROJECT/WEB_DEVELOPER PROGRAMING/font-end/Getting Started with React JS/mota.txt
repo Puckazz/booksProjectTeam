@@ -1,0 +1,11 @@
+This project-driven book consists of different projects and multiple hands-on coding challenges, which are designed to guide you in your learning journey. You can follow this book - by using your local machine.
+
+This book is part of a larger Front End Developer career path, which takes you from zero to a hireable front-end developer.
+
+This book assumes that you have a solid grasp of the fundamentals of web development, namely HTML, CSS, JavaScript, and ES6 syntax. If you are feeling rusty on any of these topics, you can visit W3Schools, where you can brush up on your skills.
+
+I'm Santoshkumar Yadav, and I will be your guidetrainer throughout this book.
+
+My username is thesantyadav, and I'm mostly active on Twitter. If you have any questions, feedback, or need help with your code, feel free to reach out to me on Twitter.
+
+Remember, this book is project-driven, and what you put into it is what you'll get out of it. Avoid the trap of tutorial hell and be an active participant in your own learning. Take breaks often, and don't be afraid to re-read previous lessons and redo challenges. Repetition is your best friend when learning something new. Good luck and have fun learning React!

@@ -1,0 +1,11 @@
+Beginning C++ Through Game Programming
+
+Cuốn sách lập trình game Beginning C++ Through Game Programming đóng vai trò quan trọng trong việc giới thiệu ngôn ngữ lập trình C++ và cách áp dụng nó vào phát triển trò chơi. C++ là một trong những ngôn ngữ phổ biến và mạnh mẽ trong lĩnh vực lập trình game, cuốn sách này cung cấp một nền tảng cơ bản cho những người mới bắt đầu với những kiến thức như:
+
+▸ Hướng dẫn bạn kiến thức ngôn ngữ lập trình C++, từ cú pháp cơ bản đến cách sử dụng các tính năng quan trọng của ngôn ngữ.
+
+▸ Chia sẻ cách bắt đầu lập trình game căn bản bao gồm việc tạo ra các đối tượng, xử lý đầu vào từ người chơi và hiển thị đồ họa đơn giản.
+
+▸ Phát triển kỹ năng lập trình game với cách tạo ra các yếu tố trò chơi như nhân vật, đối tượng và cách xử lý va chạm.
+
+› Giới thiệu thế giới phát triển trò chơi thực tế bằng C++, từ việc sử dụng các framework, thư viện cho đến cách quản lý tài nguyên và hiệu suất.

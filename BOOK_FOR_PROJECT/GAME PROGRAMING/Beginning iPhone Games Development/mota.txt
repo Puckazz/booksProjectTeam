@@ -1,0 +1,13 @@
+Beginning iPhone Games Development
+
+Lập trình game trên iPhone cũng là một lĩnh vực phát triển nổi bật trong ngành công nghiệp lập trình. Cuốn sách lập trình game Beginning iPhone Games Development mang đến nhiều kiến thức thú vị cho những người muốn khám phá lập trình game iOS (với kiến thức cơ bản về lập trình game di động). Cuốn sách này sẽ giúp bạn:
+
+• Hiểu về phương pháp thiết kế hình ảnh 2D và 3D trên iPhone.
+
+• Nắm vững các kỹ thuật tạo animation đặc trưng cho trò chơi bằng Core Animation.
+
+• Tạo ra các cảnh hành động từ những thứ đơn giản đến phức tạp.
+
+▸ Bổ sung hiệu ứng và âm thanh để trò chơi trở nên hấp dẫn hơn.
+
+▸ Phát triển tính năng đa người chơi và tương tác cho trò chơi từ 2 người chơi trở lên

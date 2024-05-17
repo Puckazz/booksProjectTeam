@@ -1,0 +1,2 @@
+Cuốn sách tập trung vào các nguyên tắc và kỹ thuật để viết mã dễ hiểu, dễ bảo trì và dễ mở rộng. Uncle Bob giới thiệu các khái niệm như "code smell" (mùi của mã), "SOLID principles" (nguyên tắc SOLID), và nhiều nguyên tắc khác để giúp bạn trở thành một lập trình viên tốt hơn.
+ví dụ cụ thể và thực hành để minh họa các khái niệm, giúp người đọc hiểu rõ hơn và áp dụng chúng trong dự án của mình.

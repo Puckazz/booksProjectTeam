@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url(../images/back-ground_login.jpg);
+}
+/* header */
+.nav {
+    background-color: #464660;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .nav .inner-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav .inner-wrap img {
+    width: 130px;
+    height: 80px;
+    object-fit: cover;
+  }
+  .nav .inner-search input {
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .nav .inner-menu ul {
+    display: flex;
+  }
+  .nav .inner-menu ul li {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .nav .inner-menu ul li a {
+    padding: 33px 7px;
+    transition: all 0.6s;
+  }
+  .nav .inner-menu ul li a:hover {
+    background-color: #fcbd34;
+    color: #000;
+  }
+  .nav .inner-icon ul {
+    display: flex;
+  }
+  .nav .inner-icon ul li i {
+    font-size: 25px;
+    color: #fff;
+  }
+  .nav .inner-icon ul li:nth-child(2) {
+    margin-left: 15px;
+  }
+  .sale {
+    background-color: #fcbd34;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+/* end header */
+.container1{
+    width: 100%;  
+    display: flex;
+    font-size: 30px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.container1 .all{
+    display: flex;
+    padding: 30px;
+    font-family: "Roboto", sans-serif;
+    height: auto;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border-radius: 12px;
+   box-shadow: 2px 2px 3px 6px rgb(216, 223, 156);
+}
+/* code for elements */
+article{
+    font-size: 70%;
+}
+/* code style for login */
+.container1 .login{
+    border-right: 2px solid #1E0342;
+    width: 570px;
+    
+}
+.container1  .text_login{
+    padding: 0.3em 0;
+}
+.container1 .login .textfield_taikhoan{
+    width: 490px;
+    height: 45px;
+    font-size: 20px;
+}
+.container1 .login .textfield_matkhau{
+    width: 490px;
+    height: 45px;
+    font-size: 20px;
+}
+.container1 .login .tickghinho{
+    scale: 1.3;
+}
+
+.container1  .button_login{
+    display: block;
+    background-color: transparent;
+    opacity: 0.7;
+    width: 265px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 25px;
+    font-weight: bold;
+    margin:10px 0;
+    border: none;   
+    transition: all 0.5s ease-in-out;
+    border: 2px solid black;
+    color: black;
+}
+.container1  .button_login:hover {
+    background-color: #FFEFEF;
+    color: #0C359E;
+    font-weight: bold;
+    border: 2px solid white ;
+}
+.container1 .login .quenmatkhau{
+    width: 270px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #0C359E;
+}
+.container1 .login .quenmatkhau:hover{
+    text-decoration: none;
+    color: pink;
+}
+input{
+    border-radius: 12px;
+    transition: all 0.5s ease-in-out;
+}
+input:hover
+{
+    box-shadow: 2px 2px 6px 3px aqua;
+}
+/* code style for sign_in */
+.container1 .sign_in{
+    padding-left: 30px;
+    width: 570px;  
+}
+.container1 .all .sign_in .textfield_diachimail{
+    width: 490px;
+    height: 40px;
+}
+/* footer */
+.footter{
+    background-color: #464660;
+    color: white;
+    padding: 30px 0;
+  }
+  
+  .footter img{
+    width: 130px;
+    height: 80px;
+    object-fit: cover
+  }
+  .footter .inner-wrap{
+    display: flex;
+    justify-content: space-around;
+  }
+  .footter .inner-content{
+    width: 24%;
+    padding: 0 10px;
+  }
+  .footter .content-first{
+    width: 20%;
+    padding: 0 10px;
+    margin-top: -18px;
+  }
+  
+  .footter .content-first p{
+    margin-left: 25px;
+  }
+  
+  .footter .inner-content h3{
+    margin-bottom: 10px;
+  }
+  
+  .footter .inner-content p{
+    margin-bottom: 10px;
+    
+  }
+  .footter .inner-content a{
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .footter .inner-icon{
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footter .inner-icon a i{
+    font-size: 25px;
+    padding: 10px;
+    margin-right: 10px;
+    transition: all 0.7s;
+    border: 1px solid #8e75b9;
+    border-radius: 50%;
+  }
+  
+  .footter .inner-icon i:hover {
+    color: yellow;
+  }
+  
+  .footter .end-footter  {
+    
+    border-top: 1px white solid;
+    border-bottom: 1px white solid;
+  }
+  
+  .footter .end-footter p {
+    padding: 20px;
+    font-weight: 700 ;
+    margin-left: 22px;
+  }
+/* end footer */

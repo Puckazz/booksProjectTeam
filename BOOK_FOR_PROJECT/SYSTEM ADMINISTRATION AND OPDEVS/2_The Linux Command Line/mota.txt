@@ -1,0 +1,1 @@
+2.The Linux Command Line by William Shotts - This classic book is a must-have for any system administrator. It covers everything you need to know about using the Linux command line, from basic commands to more advanced topics.

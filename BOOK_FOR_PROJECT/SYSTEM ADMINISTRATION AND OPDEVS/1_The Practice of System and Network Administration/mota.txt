@@ -1,0 +1,1 @@
+1.The Practice of System and Network Administration by Thomas A. Limoncelli - This book is a comprehensive guide to system and network administration. It covers a wide range of topics, including system configuration, performance tuning, security, and disaster recovery.

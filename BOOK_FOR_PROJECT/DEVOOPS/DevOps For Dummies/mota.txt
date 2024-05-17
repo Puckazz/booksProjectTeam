@@ -1,0 +1,3 @@
+DevOps embraces a culture of unifying the creation and distribution of technology in a way that allows for faster release cycles and more resource-efficient product updating. DevOps For Dummies provides a guidebook for those on the development or operations side in need of a primer on this way of working.
+
+Inside, DevOps evangelist Emily Freeman provides a roadmap for adopting the management and technology tools, as well as the culture changes, needed to dive head-first into DevOps.

@@ -1,0 +1,28 @@
+Tiêu đề:
+Machine Learning for Absolute Beginners: A Plain English Introduction (Third Edition) (Machine Learning with Python for Beginners Book Series)
+Mô tả:
+Featured by Tableau as the first of "7 Books About Machine Learning for Beginners."
+Ready to spin up a virtual GPU instance and smash through petabytes of data? Want to add 'Machine Learning' to your LinkedIn profile?
+Well, hold on there...
+Before you embark on your journey, there are some high-level theory and statistical principles to weave through first.
+
+However, rather than spend $30-$50 USD on a thick textbook, you may want to read this book first. As a clear and concise alternative, this book provides a high-level introduction to machine learning, free downloadable code exercises, and video demonstrations. Machine Learning for Absolute Beginners Third Edition has been written and designed for absolute beginners.
+
+This means plain-English explanations and no coding experience required. Where core algorithms are introduced, clear explanations and visual examples are added to make it easy to follow along at home.
+
+New Updated Edition
+This new edition also features extended chapters with quizzes, free supplementary online video tutorials for coding models in Python, and downloadable resources not included in the Second Edition. Readers of the Second Edition should not feel compelled to purchase this Third Edition.
+
+Disclaimer: If you have passed the 'beginner' stage in your study of machine learning and are ready to tackle coding and deep learning, you would be well served with a long-format textbook. If, however, you are yet to reach that Lion King moment - as a fully grown Simba looking over the Pride Lands of Africa - then this is the book to gently hoist you up and give a clear lay of the land.
+
+In This Step-By-Step Guide You Will Learn
+• How to download free datasets
+• What tools and machine learning libraries you need
+• Data scrubbing techniques, including one-hot encoding, binning and dealing with missing data
+• Preparing data for analysis, including k-fold Validation
+• Regression analysis to create trend lines
+• k-Means Clustering to find new relationships
+• The basics of Neural Networks
+• Bias/Variance to improve your machine learning mode
+• Decision Trees to decode classification, and
+• How to build your first Machine Learning Model to predict house values using Python

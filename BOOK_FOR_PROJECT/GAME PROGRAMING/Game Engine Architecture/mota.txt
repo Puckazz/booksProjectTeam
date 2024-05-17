@@ -1,0 +1,11 @@
+Game Engine Architecture
+
+Cuốn sách này có thể được xem như "sách giáo khoa" quan trọng trong lĩnh vực lập trình game. Nó là tài liệu cần thiết cho bất kỳ ai muốn theo đuổi sự nghiệp trong lĩnh vực phát triển trò chơi. Cuốn sách này cung cấp một cái nhìn toàn diện về tất cả các khía cạnh lập trình game từ lý thuyết đến thực hành. Những nội dung chính của cuốn sách lập trình game Game Engine Architecture bao gồm:
+
+› Lý thuyết cơ bản về thiết kế trò chơi gồm các yếu tố như cốt truyện, gameplay và giao diện người dùng.
+
+• Các công cụ và kỹ thuật cần thiết để phát triển trò chơi như việc sử dụng các hệ thống game engine và ngôn ngữ lập trình.
+
+* Cách tạo đồ họa, âm thanh cho trò chơi như việc sử dụng phần mềm đồ họa và âm nhạc, cũng như việc tối ưu hóa hiệu suất.
+
+* Quy trình thử nghiệm và phân phối trò chơi cho các nền táng khác nhau bao gồm cả điện thoại di động, máy tính và các hệ thống console.

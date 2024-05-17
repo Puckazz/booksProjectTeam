@@ -1,0 +1,1 @@
+Dancing with Python book will help you get started with coding for Python and Quantum Computing. Basic familiarity with algebra, geometry, trigonometry, and logarithms is required as the book does not cover the detailed mathematics and theory of quantum computing.

@@ -1,0 +1,3 @@
+Kotlin in Action guides experienced Java developers from the language basics of Kotlin all the way through building applications to run on the JVM and Android devices. Foreword by Andrey Breslav, Lead Designer of Kotlin.
+
+Purchase of the print book includes a free eBook in PDF, Kindle, and ePub formats from Manning Publications.

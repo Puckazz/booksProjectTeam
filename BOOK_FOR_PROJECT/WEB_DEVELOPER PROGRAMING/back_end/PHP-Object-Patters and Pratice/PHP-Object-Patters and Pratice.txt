@@ -1,0 +1,2 @@
+"PHP Objects, Patterns, and Practice" là một cuốn sách chuyên sâu về lập trình hướng đối tượng trong PHP. Cuốn sách này giúp bạn hiểu rõ hơn về cách sử dụng lập trình hướng đối tượng để xây dựng các ứng dụng PHP phức tạp và dễ bảo trì.
+ các mẫu thiết kế phổ biến như Singleton, Factory, Observer, và nhiều hơn nữa. 

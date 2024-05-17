@@ -1,0 +1,4 @@
+"Head First Servlets and JSP" là một cuốn sách hướng dẫn thực hành về lập trình Java Servlet và JSP.
+ Cuốn sách này sử dụng phong cách dễ hiểu, thú vị và đầy màu sắc của loạt sách "Head First" để giảng dạy về các khái niệm 
+cơ bản và nâng cao trong việc phát triển
+ các ứng dụng web sử dụng Java Servlet và JSP.

@@ -1,0 +1,229 @@
+.checkout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  margin: 0 180px;
+  height: 100vh;
+}
+.column_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.column_wrapper h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0;
+  color: rgba(0, 0, 0, 0.8);
+}
+.method_pay-form .form_label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.8);
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.method_pay-form .select_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  background: none;
+  margin-bottom: 15px;
+}
+.select_container .icon_container {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.select_container .icon_container i {
+  font-size: 12px;
+  color: #bbbfc4;
+  transition: all 0.2s ease;
+}
+#form_select:focus ~ .icon_container i {
+  transform: rotate(180deg);
+}
+.column_wrapper .select_container #form_select {
+  margin-bottom: 0;
+}
+.column_wrapper .form_input,
+.column_wrapper #form_select {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 15px;
+  margin-bottom: 15px;
+  padding: 0 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 1px #d9d9d9;
+  transition: all 0.2s ease-out;
+}
+.method_pay-form span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #338dbc;
+  margin-bottom: 10px;
+}
+.method_pay-form #form_note {
+  font-size: 13px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 1px #d9d9d9;
+  transition: all 0.2s ease-out;
+}
+.column_wrapper :is(.form_input, #form_select, #form_note):focus {
+  box-shadow: 0 0 0 2px #338dbc;
+  outline: none;
+}
+.checkout .your_order {
+  padding: 0 40px;
+  width: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+}
+.your_order .row_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+}
+.your_order .item_1 {
+  font-size: 16px;
+  border-bottom: 2.5px solid #d9d9d9;
+  padding-bottom: 16px;
+}
+.your_order .item_product {
+  padding: 10px 0;
+}
+.your_order .discount_code {
+  padding-top: 15px;
+  border-top: 1px solid #d9d9d9;
+  /* flex: 1; */
+}
+.your_order .discount_code input {
+  flex: 3;
+  margin-right: 20px;
+}
+.your_order .row_item button {
+  font-size: 15px;
+  color: #fff;
+  background-color: #338dbc;
+  height: 40px;
+  width: 106px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+.your_order .row_item button:hover {
+  background-color: #008fe5;
+}
+.your_order .item_2 {
+  padding: 10px 0;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+}
+.your_order .row_item span:last-child {
+  font-size: 16px;
+  margin-left: auto;
+  color: rgba(0, 0, 0, 0.8);
+}
+.your_order .shipping {
+  display: flex;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+.your_order .pad {
+  padding-bottom: 0;
+}
+.your_order .method_pay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px 0;
+}
+.your_order .method_pay .row_item {
+  justify-content: flex-start;
+  padding: 18px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.your_order .method_pay #zalo-rmborder {
+  border-bottom: none;
+}
+.your_order .method_pay .row_item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  background: transparent;
+}
+.your_order .order_item {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.your_order .order_item button {
+  font-size: 18px;
+  height: 60px;
+  width: 150px;
+}
+.your_order .order_item p:last-child {
+  font-size: 16px;
+  margin: 15px 0;
+}
+/* Responsive */
+@media (max-width: 1280px) {
+  .checkout {
+    margin: 0 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .checkout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 40px;
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 40em;
+  }
+  .checkout .your_order {
+    padding: 0;
+    border-top: 1px solid #d9d9d9;
+    border-left: none;
+  }
+}
+@media (max-width: 768px) {
+  .your_order .order_item button {
+    width: 100%;
+  }
+}
