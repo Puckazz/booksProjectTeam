@@ -22,7 +22,7 @@ function checkIfCartIsEmpty() {
 function showEmptyCartMessage() {
     var messageContainer = document.getElementById("message-container");
     messageContainer.innerHTML =
-        "<div class='empty-cart-message'>Không còn sản phẩm nào trong giỏ hàng.</div>";
+        "<div class='empty-cart-message' style='margin: 150px 0;'>Không còn sản phẩm nào trong giỏ hàng.</div>";
 }
 
 const quantityItem = document.querySelectorAll(".info_product");
@@ -73,5 +73,30 @@ quantityItem.forEach((item) => {
             .toLocaleString("vi-VN")
             .replace(".", ",")
             .replace(".", ",");
+    }
+});
+
+// discount code
+let openDiscountCode = document.querySelector(".open_dc");
+let closeDiscountCode = document.querySelector(".btn_closing");
+let body = document.querySelector("body");
+
+openDiscountCode.addEventListener("click", () => {
+    body.classList.add("active");
+});
+closeDiscountCode.addEventListener("click", () => {
+    body.classList.remove("active");
+});
+document.addEventListener("DOMContentLoaded", function () {
+    var buttonCopy = document.getElementsByClassName("copy");
+    for (var i = 0; i < buttonCopy.length; i++) {
+        buttonCopy[i].addEventListener("click", function () {
+            var button = this;
+            button.innerHTML = "Đã sao chép";
+
+            setTimeout(function () {
+                button.innerHTML = "Sao chép";
+            }, 1000);
+        });
     }
 });
