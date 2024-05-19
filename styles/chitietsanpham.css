@@ -5,6 +5,7 @@
     top: 0;
     width: 100%;
     z-index: 999;
+    
   }
   .nav .inner-wrap {
     display: flex;
@@ -50,11 +51,14 @@
     background-color: #fcbd34;
     padding: 20px 0;
     text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
   }
 /* end header */
 body{
     background-color: #F6F5F2;
     font-family: "roboto", sans-serif;
+    margin: 0;
 }
 /* the style for inner left */
 .container{
