@@ -264,15 +264,17 @@ body{
     justify-content: center;
  }
  .container-sanpham .inner-right .xemthem .circle-page{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 20px;
     font-weight: bold;
     background-color: #BABEC2;
     color: white;
     font-size: 30px;
     border-radius: 100px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
  }
  .container-sanpham .inner-right .xemthem a{
     text-decoration: none;
