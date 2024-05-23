@@ -1,13 +1,3 @@
-var removeCartItem = document.getElementsByClassName("btn-rm");
-console.log(removeCartItem);
-for (var i = 0; i < removeCartItem.length; i++) {
-    var button = removeCartItem[i];
-    button.addEventListener("click", function (event) {
-        var buttonClicked = event.target;
-        buttonClicked.parentElement.parentElement.parentElement.parentElement.remove();
-        checkIfCartIsEmpty();
-    });
-}
 function checkIfCartIsEmpty() {
     var cartItems = document.getElementsByClassName("info_product");
     if (cartItems.length === 0) {
@@ -22,8 +12,12 @@ function checkIfCartIsEmpty() {
 function showEmptyCartMessage() {
     var messageContainer = document.getElementById("message-container");
     messageContainer.innerHTML =
-        "<div class='empty-cart-message' style='margin: 150px 0;'>Không còn sản phẩm nào trong giỏ hàng.</div>";
+        "<div class='empty-cart-message' style='margin: 180px 0;'>Không có sản phẩm nào trong giỏ hàng.</div>";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    checkIfCartIsEmpty();
+});
 
 const quantityItem = document.querySelectorAll(".info_product");
 
@@ -32,12 +26,14 @@ quantityItem.forEach((item) => {
     const num = item.querySelector(".item-3 .num");
     const plus = item.querySelector(".item-3 .plus");
 
-    const priceElement = item.querySelector(".item-4 .total");
+    const priceElement = item.querySelector(".info_price");
     const originalPrice = parseInt(priceElement.textContent.replace(/,/g, ""));
+    const totalElement = item.querySelector(".info_total .total");
 
     const curTotal = document.querySelector(".pay_total .total_all");
 
-    let quantity = 1;
+    const qt = parseInt(num.textContent);
+    let quantity = qt;
 
     minus.addEventListener("click", () => {
         if (quantity > 1) {
@@ -56,7 +52,7 @@ quantityItem.forEach((item) => {
 
     function updateTotal() {
         const newTotal = originalPrice * quantity;
-        priceElement.textContent = newTotal
+        totalElement.textContent = newTotal
             .toLocaleString("vi-VN")
             .replace(".", ",")
             .replace(".", ",");
@@ -99,4 +95,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         });
     }
+});
+
+// Cart slider item like
+const cardlike = document.querySelector(".card_like");
+const arrowBtn = document.querySelectorAll(".container_product .arrow");
+const firstCardWidth = cardlike.querySelector(".item_info").offsetWidth;
+
+arrowBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        cardlike.scrollLeft += btn.id === "prev" ? -firstCardWidth : firstCardWidth;
+    })
 });
