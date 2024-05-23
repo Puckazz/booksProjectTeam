@@ -109,7 +109,12 @@ if (!$conn) {
 
             if (isset($_POST['minus'])) {
                 $id_update = $_POST['id_update'];
-                mysqli_query($conn, "UPDATE cart SET quantity = quantity - 1 WHERE id_book = '$id_update'");
+                $qt = mysqli_query($conn, "SELECT quantity FROM cart WHERE id_book = '$id_update'");
+                $row = mysqli_fetch_assoc($qt);
+                $current_quantity = $row['quantity'];
+                if ($current_quantity > 1) {
+                    mysqli_query($conn, "UPDATE cart SET quantity = quantity - 1 WHERE id_book = '$id_update'");
+                }
             }
 
             $select_all_cart = mysqli_query($conn, "SELECT * FROM cart");
@@ -133,7 +138,7 @@ if (!$conn) {
                                 </div>
                             </div>
                         </div>
-                        <div class="info_price item-2"><?= $row['price_book']; ?>,000<u>đ</u></div>
+                        <div class="info_price item-2"><?= $row['price_book']; ?>,000</div>
                         <div class="info_quantity item-3">
                             <button class="minus" type="submit" name="minus">-</button>
                             <span class="num"><?= $row['quantity']; ?></span>
@@ -141,7 +146,7 @@ if (!$conn) {
                             <button class="plus" type="submit" name="plus">+</button>
                         </div>
                         <div class="info_total item-4">
-                            <span class="total"><?= $row['price_book'] * $row['quantity']; ?>,000</span> <u>đ</u>
+                            <span class="total"><?= $row['price_book'] * $row['quantity']; ?>,000</span>
                         </div>
                     </div>
                 </form>
@@ -162,7 +167,7 @@ if (!$conn) {
             <div class="cart_pay">
                 <div class="column_item pay_total">
                     <p>TỔNG CỘNG</p>
-                    <p class="total_all"><?= $total_all; ?>,000</p><u>đ</u>
+                    <p class="total_all" id="total_all"><?= $total_all; ?>,000</p>
                 </div>
                 <div class="column_item pay_discount">
                     <i class="bx bxs-discount"></i>

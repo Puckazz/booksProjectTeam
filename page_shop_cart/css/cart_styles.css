@@ -159,6 +159,7 @@
 }
 .info_book p:first-child {
     font-size: 18px;
+    padding-right: 30px;
     color: rgba(0, 0, 0, 0.8);
 }
 .info_book p:first-child:hover {
@@ -605,7 +606,7 @@
         padding: 0 50px;
         width: 1080px;
     }
-    .container {
+    .container_cart {
         padding-left: 60px;
     }
     .container_product {
@@ -618,7 +619,7 @@
         padding: 0 80px;
         width: 100%;
     }
-    .container {
+    .container_cart {
         padding-left: 60px;
     }
     .container_product {
@@ -697,7 +698,7 @@
     .cart {
         padding: 0 20px;
     }
-    .container {
+    .container_cart {
         padding-left: 10px;
     }
     .container_product {

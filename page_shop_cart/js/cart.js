@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+    checkIfCartIsEmpty();
+});
+
 function checkIfCartIsEmpty() {
     var cartItems = document.getElementsByClassName("info_product");
     if (cartItems.length === 0) {
@@ -15,62 +19,50 @@ function showEmptyCartMessage() {
         "<div class='empty-cart-message' style='margin: 180px 0;'>Không có sản phẩm nào trong giỏ hàng.</div>";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    checkIfCartIsEmpty();
-});
 
+// format price
 const quantityItem = document.querySelectorAll(".info_product");
-
 quantityItem.forEach((item) => {
-    const minus = item.querySelector(".item-3 .minus");
-    const num = item.querySelector(".item-3 .num");
-    const plus = item.querySelector(".item-3 .plus");
+    const priceElement1 = item.querySelector(".info_price");
+    const originalPrice1 = parseInt(
+        priceElement1.textContent.replace(/,/g, "")
+    );
+    const formattedPrice1 = originalPrice1
+        .toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND",
+        })
+        .replace(".", ",")
+        .replace(".", ",");
 
-    const priceElement = item.querySelector(".info_price");
-    const originalPrice = parseInt(priceElement.textContent.replace(/,/g, ""));
-    const totalElement = item.querySelector(".info_total .total");
+    priceElement1.textContent = formattedPrice1;
 
-    const curTotal = document.querySelector(".pay_total .total_all");
+    const priceElement2 = item.querySelector(".total");
+    const originalPrice2 = parseInt(
+        priceElement2.textContent.replace(/,/g, "")
+    );
+    const formattedPrice2 = originalPrice2
+        .toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND",
+        })
+        .replace(".", ",")
+        .replace(".", ",");
 
-    const qt = parseInt(num.textContent);
-    let quantity = qt;
-
-    minus.addEventListener("click", () => {
-        if (quantity > 1) {
-            quantity--;
-            num.innerText = quantity;
-            updateTotal();
-            updateTotalAll();
-        }
-    });
-    plus.addEventListener("click", () => {
-        quantity++;
-        num.innerText = quantity;
-        updateTotal();
-        updateTotalAll();
-    });
-
-    function updateTotal() {
-        const newTotal = originalPrice * quantity;
-        totalElement.textContent = newTotal
-            .toLocaleString("vi-VN")
-            .replace(".", ",")
-            .replace(".", ",");
-    }
-
-    function updateTotalAll() {
-        let newTotalAll = 0;
-        quantityItem.forEach((item) => {
-            const priceElement = item.querySelector(".item-4 .total");
-            const price = parseInt(priceElement.textContent.replace(/,/g, ""));
-            newTotalAll += price;
-        });
-        curTotal.textContent = newTotalAll
-            .toLocaleString("vi-VN")
-            .replace(".", ",")
-            .replace(".", ",");
-    }
+    priceElement2.textContent = formattedPrice2;
 });
+
+const priceElement3 = document.querySelector(".total_all");
+const originalPrice3 = parseInt(priceElement3.textContent.replace(/,/g, ""));
+const formattedPrice3 = originalPrice3
+    .toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+    })
+    .replace(".", ",")
+    .replace(".", ",");
+
+priceElement3.textContent = formattedPrice3;
 
 // discount code
 let openDiscountCode = document.querySelector(".open_dc");
@@ -102,8 +94,9 @@ const cardlike = document.querySelector(".card_like");
 const arrowBtn = document.querySelectorAll(".container_product .arrow");
 const firstCardWidth = cardlike.querySelector(".item_info").offsetWidth;
 
-arrowBtn.forEach(btn => {
+arrowBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-        cardlike.scrollLeft += btn.id === "prev" ? -firstCardWidth : firstCardWidth;
-    })
+        cardlike.scrollLeft +=
+            btn.id === "prev" ? -firstCardWidth : firstCardWidth;
+    });
 });
