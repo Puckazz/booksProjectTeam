@@ -39,9 +39,10 @@
 .container-content{
     display: flex;
     margin: 40px 100px;
-    border: 2px solid black;
-    border-radius: 15px;
     align-items: stretch;
+   justify-content: space-between;
+  
+    
 }
 /* inner left */
 .container-content .inner-left{
@@ -69,6 +70,7 @@
     text-align: center;
     color: blue;
     margin-bottom: 20px;
+    font-size: 217%;
 }
 .support{
     display: flex;
@@ -76,6 +78,11 @@
 }
 .support .icon{
     margin-right: 25px;
+    font-size: 22px;
+}
+.support .icon:hover{
+  color: orange;
+  transition: 0.5s;
 }
    
 
