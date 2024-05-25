@@ -47,7 +47,7 @@ if (!$conn) {
                             <a href="../page_sanPham/dangNhap.html"><i class="fa-regular fa-user"></i></a>
                         </li>
                         <li>
-                            <a href="../page_shop_cart/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                            <a href="../page_shop_cart/cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -57,6 +57,7 @@ if (!$conn) {
     <h2 class="sale">Giảm giá 20% cho tất cả sách hôm nay</h2>
 
     <!-- end header -->
+    <div class="loader"></div>
     <div class="cart">
         <div class="cart_header">
             <h1>Giỏ Hàng</h1>
@@ -114,6 +115,8 @@ if (!$conn) {
                 $current_quantity = $row['quantity'];
                 if ($current_quantity > 1) {
                     mysqli_query($conn, "UPDATE cart SET quantity = quantity - 1 WHERE id_book = '$id_update'");
+                } else {
+                    mysqli_query($conn, "DELETE FROM cart WHERE id_book = '$id_update'");
                 }
             }
 
@@ -177,9 +180,10 @@ if (!$conn) {
                         <i class="bx bx-chevron-right"></i>
                     </div>
                 </div>
-                <a href="checkouts.html" class="column_item pay_btn">
-                    <p>THANH TOÁN</p>
-                </a>
+                <form action="./checkouts.php" method="post" style="width: 100%;">
+                    <input type="hidden" name="total_book" value="<?php echo $total_all; ?>">
+                    <button class="column_item pay_btn" type="submit">THANH TOÁN</button>
+                </form>
             </div>
         </div>
 
@@ -193,7 +197,7 @@ if (!$conn) {
                 <div id="title">VOUCHER</div>
                 <div class="col_item_1">
                     <p class="price">20,000<span>VNĐ</span></p>
-                    <p class="code">Nhập mã: WP123</p>
+                    <p class="code">Nhập mã: HKT919</p>
                 </div>
                 <div class="col_item_2">
                     <p class="level_price">Đơn từ 99K</p>
@@ -205,7 +209,7 @@ if (!$conn) {
                 <div id="title">VOUCHER</div>
                 <div class="col_item_1">
                     <p class="price">50,000<span>VNĐ</span></p>
-                    <p class="code">Nhập mã: WP123</p>
+                    <p class="code">Nhập mã: AH789P</p>
                 </div>
                 <div class="col_item_2">
                     <p class="level_price">Đơn từ 300K</p>
@@ -217,7 +221,7 @@ if (!$conn) {
                 <div id="title">VOUCHER</div>
                 <div class="col_item_1">
                     <p class="price">10,000<span>VNĐ</span></p>
-                    <p class="code">Nhập mã: WP123</p>
+                    <p class="code">Nhập mã: 617ADG</p>
                 </div>
                 <div class="col_item_2">
                     <p class="level_price">Đơn từ 50K</p>
@@ -229,7 +233,7 @@ if (!$conn) {
                 <div id="title">VOUCHER</div>
                 <div class="col_item_1">
                     <p class="price">100,000<span>VNĐ</span></p>
-                    <p class="code">Nhập mã: WP123</p>
+                    <p class="code">Nhập mã: WP1234</p>
                 </div>
                 <div class="col_item_2">
                     <p class="level_price">Đơn từ 500K</p>
@@ -249,7 +253,7 @@ if (!$conn) {
                 <h2>Có thể bạn sẽ thích</h2>
                 <div class="item_like card_like">
                     <?php
-                    $sql = "SELECT book.ID_Book, book.name_book, book.buyPrice, book.year_publish, book.link, book.ID_tacgia, authors.author_name 
+                    $sql = "SELECT book.ID_Book, book.name_book, book.discount, book.buyPrice, book.salePrice, book.year_publish, book.link, book.ID_tacgia, authors.author_name 
                     FROM book INNER JOIN authors 
                     ON book.ID_tacgia = authors.ID_tacgia
                     ORDER BY RAND()
@@ -260,11 +264,15 @@ if (!$conn) {
                         <form action="" method="post">
                             <div class="item_info">
                                 <div class="card">
-                                    <i class="bx bxs-heart"></i>
-                                    <div class="img_item"><img src="<?= $row['link'] ?>" alt="book1" loading="lazy" /></div>
+                                    <i class="bx bx-heart"></i>
+                                    <span class="discount">-<?= $row['discount'] * 100; ?>%</span>
+                                    <div class="img_item"><img src="<?= $row['link']; ?>" alt="book1" loading="lazy" /></div>
                                 </div>
                                 <p><?= $row['name_book']; ?></p>
-                                <span><?= $row['buyPrice']; ?>,000<u>đ</u></span>
+                                <div class="price_item">
+                                    <span class="sale_price"><?= $row['salePrice']; ?>,000</span>
+                                    <del class="buy_price"><?= $row['buyPrice']; ?>,000</del>
+                                </div>
                                 <button type="submit" name="addToCart">Thêm vào giỏ</button>
 
                                 <input type="hidden" name="img_book" value="<?php echo $row['link']; ?>">
@@ -272,7 +280,7 @@ if (!$conn) {
                                 <input type="hidden" name="author_book" value="<?php echo $row['author_name']; ?>">
                                 <input type="hidden" name="id_book" value="<?php echo $row['ID_Book']; ?>">
                                 <input type="hidden" name="year_publish" value="<?php echo $row['year_publish']; ?>">
-                                <input type="hidden" name="price_book" value="<?php echo $row['buyPrice']; ?>">
+                                <input type="hidden" name="price_book" value="<?php echo $row['salePrice']; ?>">
                             </div>
                         </form>
                     <?php }

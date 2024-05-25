@@ -57,6 +57,45 @@
 
 /* end header */
 
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 9999;
+}
+
+.loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    /* border: 8px dotted #dddddd; */
+    border: 8px dotted #fcbd34;
+    /* border-top-color: #1d5b79; */
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 .cart {
     display: flex;
     justify-content: center;
@@ -315,6 +354,9 @@
     padding: 12px 0;
     margin-top: 20px;
     font-size: 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 #message-container {
     color: #1d5b79;
@@ -526,7 +568,22 @@
     top: 5px;
     left: 5px;
     cursor: pointer;
-    color: #d84144;
+    color: rgba(0, 0, 0, 0.8);
+}
+.item_info .card .discount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    /* font-weight: 500; */
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    color: #fff;
+    background-color: #ff0000;
+    width: 34px;
+    height: 20px;
+    border-radius: 25px;
 }
 .item_info .card .img_item {
     width: 145px;
@@ -537,6 +594,7 @@
 .item_info .card .img_item img {
     width: 100%;
     height: 100%;
+    border: 1px solid #eee;
     border-radius: 5px;
     transition: all 1s ease-in-out;
 }
@@ -553,11 +611,15 @@
 .item_info > p {
     direction: ltr;
 }
-.item_info span {
+.item_info .price_item {
+    margin-bottom: 10px;
+    color: #7f8487;
+}
+.item_info .price_item span {
     font-size: 16px;
     font-weight: 500;
     color: #464660;
-    margin-bottom: 10px;
+    margin-right: 10px;
 }
 .item_info button {
     width: 100px;
