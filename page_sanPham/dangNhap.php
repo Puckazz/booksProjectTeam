@@ -3,8 +3,8 @@
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "Am0703197015@";
-$dbname = "quanlisach";
+$dbpassword = "";
+$dbname = "bookdatabase";
 
 // Tạo kết nối
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
