@@ -19,52 +19,47 @@ function showEmptyCartMessage() {
         "<div class='empty-cart-message' style='margin: 180px 0;'>Không có sản phẩm nào trong giỏ hàng.</div>";
 }
 
-
 // format price
+function formatPrice(str, item) {
+    const priceElement = item.querySelector(str);
+    const originalPrice = parseInt(priceElement.textContent.replace(/,/g, ""));
+    const formattedPrice = originalPrice
+        .toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND",
+        })
+        .replace(".", ",")
+        .replace(".", ",");
+
+    priceElement.textContent = formattedPrice;
+}
+
 const quantityItem = document.querySelectorAll(".info_product");
 quantityItem.forEach((item) => {
-    const priceElement1 = item.querySelector(".info_price");
-    const originalPrice1 = parseInt(
-        priceElement1.textContent.replace(/,/g, "")
-    );
-    const formattedPrice1 = originalPrice1
-        .toLocaleString("vi-VN", {
-            style: "currency",
-            currency: "VND",
-        })
-        .replace(".", ",")
-        .replace(".", ",");
-
-    priceElement1.textContent = formattedPrice1;
-
-    const priceElement2 = item.querySelector(".total");
-    const originalPrice2 = parseInt(
-        priceElement2.textContent.replace(/,/g, "")
-    );
-    const formattedPrice2 = originalPrice2
-        .toLocaleString("vi-VN", {
-            style: "currency",
-            currency: "VND",
-        })
-        .replace(".", ",")
-        .replace(".", ",");
-
-    priceElement2.textContent = formattedPrice2;
+    formatPrice(".info_price", item);
+    formatPrice(".total", item);
 });
 
-const priceElement3 = document.querySelector(".total_all");
-const originalPrice3 = parseInt(priceElement3.textContent.replace(/,/g, ""));
-const formattedPrice3 = originalPrice3
-    .toLocaleString("vi-VN", {
-        style: "currency",
-        currency: "VND",
-    })
-    .replace(".", ",")
-    .replace(".", ",");
+formatPrice(".total_all", document);
 
-priceElement3.textContent = formattedPrice3;
+const container = document.querySelectorAll(".item_info");
+container.forEach((item) => {
+    formatPrice(".sale_price", item);
+    formatPrice(".buy_price", item);
+});
 
-// discount code
+// hide discount if it not discount
+container.forEach((item) => {
+    const sale = item.querySelector(".discount");
+    const buyPrice = item.querySelector(".buy_price");
+    const saleInt = parseInt(sale.textContent.replace(/-|%/g, ""));
+    if (saleInt < 1) {
+        sale.style.display = "none";
+        buyPrice.style.display = "none";
+    }
+});
+
+// vocher code
 let openDiscountCode = document.querySelector(".open_dc");
 let closeDiscountCode = document.querySelector(".btn_closing");
 let body = document.querySelector("body");
@@ -98,5 +93,19 @@ arrowBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
         cardlike.scrollLeft +=
             btn.id === "prev" ? -firstCardWidth : firstCardWidth;
+    });
+});
+
+// Load
+window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+
+    loader.classList.add("loader--hidden");
+
+    loader.addEventListener("transitionend", () => {
+        // document.body.removeChild(loader);
+        if (loader && loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+        }
     });
 });
