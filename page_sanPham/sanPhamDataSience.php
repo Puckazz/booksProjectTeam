@@ -69,7 +69,7 @@ $conn->close();
             <li><a href="#">Nổi bật</a></li>
             <li><a href="#">Khuyến Mãi</a></li>
             <li><a href="./sanPhamDataSience.php">Sản phẩm</a></li>
-            <li><a href="#">Liên Hệ</a></li>
+            <li><a href="../page_About_us/aboutUS.html">Liên Hệ</a></li>
           </ul>
         </div>
         <div class="inner-icon">

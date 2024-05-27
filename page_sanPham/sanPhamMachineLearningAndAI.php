@@ -41,7 +41,7 @@ WHERE
 $conn->close();
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE htlm>
 <html lang="en">
 
 <head>
@@ -63,20 +63,20 @@ $conn->close();
                 </div>
                 <div class="inner-menu">
                     <ul>
-                        <li><a href="../index.html">Trang Chủ</a></li>
+                        <li><a href="../index.php">Trang Chủ</a></li>
                         <li><a href="#">Nổi bật</a></li>
                         <li><a href="#">Khuyến Mãi</a></li>
-                        <li><a href="./sanPhamMachineLearningAndAI.html">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="./sanPhamMachineLearningAndAI.php">Sản Phẩm</a></li>
+                        <li><a href="../page_About_us/aboutUS.html">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <div class="inner-icon">
                     <ul>
                         <li>
-                            <a href="../page_sanPham/dangNhap.html"><i class="fa-regular fa-user"></i></a>
+                            <a href="../page_sanPham/dangNhap.php"><i class="fa-regular fa-user"></i></a>
                         </li>
                         <li>
-                            <a href="../page_shop_cart/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                            <a href="../page_shop_cart/cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -100,13 +100,13 @@ $conn->close();
                                 <ul>
                                     <li class="chude-list">Chủ đề
                                         <ul>
-                                            <li><a href="./sanPhamWeb.html">Web Development</a></li>
-                                            <li><a href="./sanPhamGame.html">Game Programing</a></li>
-                                            <li><a href="./sanPhamMobileApp.html">Mobile-app Development</a></li>
-                                            <li><a href="./sanPhamDataSience.html">Data Science</a></li>
-                                            <li><a href="./sanPhamMachineLearningAndAI.html">Machine Learning</a></li>
-                                            <li><a href="./sanPhamSystemAdministration.html">System Administration</a></li>
-                                            <li><a href="./sanPhamDevops.html">DevOps</a></li>
+                                            <li><a href="./sanPhamWeb.php">Web Development</a></li>
+                                            <li><a href="./sanPhamGame.php">Game Programing</a></li>
+                                            <li><a href="./sanPhamMobileApp.php">Mobile-app Development</a></li>
+                                            <li><a href="./sanPhamDataSience.php">Data Science</a></li>
+                                            <li><a href="./sanPhamMachineLearningAndAI.php">Machine Learning</a></li>
+                                            <li><a href="./sanPhamSystemAdministration.php">System Administration</a></li>
+                                            <li><a href="./sanPhamDevops.php">DevOps</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -257,4 +257,4 @@ $conn->close();
             <!-- end footer -->
 </body>
 
-</html>
+                    </html>
