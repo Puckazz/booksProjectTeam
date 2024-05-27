@@ -1,3 +1,49 @@
+<?php
+$servername = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "bookdatabase";
+
+// Tạo kết nối MySQLi
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+// Kiểm tra kết nối MySQLi
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// lấy dữ liệu từ database
+try {
+    // Tạo kết nối PDO
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Truy vấn dữ liệu từ bảng sản phẩm
+    $stmt = $pdo->query("SELECT 
+    name_book,
+    CONCAT(ROUND(discount * 100, 2), '%') AS discount_percentage,
+    buyPrice,
+    salePrice,
+    year_publish,
+    link ,
+    status
+FROM 
+    bookdatabase.book 
+WHERE 
+    name_category_book = 'Web';
+");
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    
+   
+} catch (PDOException $e) {
+    echo 'Kết nối không thành công: ' . $e->getMessage();
+}
+
+// Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,162 +152,27 @@
         </div>
         <div class="inner-right">
             <div class="products">
-                <div class="product">
-                    <a href="../page_chiTietSanPham/book_cleanCode.html">
-                <img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/back_end/Clean-code/Clean-Code.jpg" alt="" width="200px" height="300px">
-                    </a>
-                <div class="description">
-                    <p>Clean Code</p>
-                    <p><strong>Clean Code(2023)</strong></p>
-                    <p class="price"> <span class="gach">$120.00</span> <span>$100.00</span></p>
-                    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-                    <p class="soluongban">Đã bán 200</p>
-                    <p class="sale">-16.61%</p>
-                </div>
-            </div>
-            <div class="product">
-                <a href="">
-            <img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/back_end/head-first-JServlet-jsp/head-first-JServlet-jsp.jpg" alt="" width="200px" height="300px">
-                </a>
-            <div class="description">
-                <p>Head Firts Jservlet Jsp</p>
-                <p><strong>Head Firts Jservlet Jsp(2024)</strong></p>
-                <p class="price"> <span class="gach">$300.00</span> <span>$164.00</span></p>
-                <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-                <p class="soluongban">Đã bán 1,2k</p>
-                <p class="sale">-45.32%</p>
-            </div>
-        </div>
-        <div class="product">
-            <a href="">
-        <img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/back_end/JAVA-Complete_Reference/JAVA-Complete_Reference.jpg" alt="" width="200px" height="300px">
-            </a>
-        <div class="description">
-            <p>Java Complete Reference</p>
-            <p><strong>Java Complete Reference(2024)</strong></p>
-            <p class="price"> <span class="gach">$900.00</span> <span>$354.00</span></p>
-            <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-            <p class="soluongban">Đã bán 400</p>
-            <p class="sale">-60.66%</p>
-        </div>
-    </div>
-    <div class="product">
-        <a href="">
-    <img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/back_end/Node.js-Design_Panttern/Node.js-Design_Panttern.jpg" alt="" width="200px" height="300px">
-        </a>
+            <?php foreach ($products as  $item) {
+
+?>
+  <div class="product">
+    <a href="">
+      <img src="<?php echo $item['link'] ?>" alt="" width="200px" height="300px">
+    </a>
     <div class="description">
-        <p>Node.js Design Pattern</p>
-        <p><strong>Node.js Design Pattern(2019)</strong></p>
-        <p class="price"> <span class="gach">$785.00</span> <span>$500.00</span></p>
-        <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-        <p class="soluongban">Đã bán 265</p>
-        <p class="sale">-36.30%</p>
+      <p><?php echo $item['name_book'] ?></p>
+      <p><strong> <?php echo $item['name_book'] . "({$item['year_publish']})" ?></strong></p>
+      <p class="price"> <span class="gach">$<?php echo $item['buyPrice'] ?></span> <span>$<?php echo $item['salePrice'] ?></span></p>
+      <p class="status"><i class="fa-solid fa-circle-check"></i> <span><?php echo $item['status'] ?></span></p>
+      <p class="soluongban">Đã bán 20k</p>
+      <p class="sale">-<?php echo $item['discount_percentage'] ?></p>
     </div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/back_end/PHP-MSQL-WEB-Development/PHP-MSQL-WEB-Development.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>PHP-MSQL-WEB Development</p>
-    <p><strong>PHP-MSQL-WEB Development(2024)</strong></p>
-    <p class="price"> <span class="gach">$179.00</span> <span>$68.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 2.2k</p>
-    <p class="sale">-62.01%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/back_end/PHP-Object-Patters and Pratice/PHP-Object-Patters and Pratice.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>PHP Object patter and practice</p>
-    <p><strong>PHP Object patter and practice(2022)</strong></p>
-    <p class="price"> <span class="gach">$499.00</span> <span>$278.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 1.9k</p>
-    <p class="sale"> -44.28%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/font-end/HTML_CSS/HTML-CSS_JAVASCRIPT.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>HTML-CSS_JavaScript</p>
-    <p><strong>HTML-CSS_JavaScript(2017)</strong></p>
-    <p class="price"> <span class="gach">$134.00</span> <span>$100.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 20.2k</p>
-    <p class="sale"> -25.37%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/font-end/JavaScript-Jquey/JavaScript&Jquery.png" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>JavaScript & JQuery</p>
-    <p><strong>JavaScript & JQuery(2022)</strong></p>
-    <p class="price"> <span class="gach">$400.00</span> <span>$320.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 5.2k</p>
-    <p class="sale"> -20.00%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/font-end/Jquery/JQuery.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>Jquery</p>
-    <p><strong>Jquery(2023)</strong></p>
-    <p class="price"> <span class="gach">$500.00</span> <span>$273.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 3.2k</p>
-    <p class="sale"> -45.40%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/font-end/Art of CSS của Jeffrey Eisenberg/Art of CSS của Jeffrey Eisenberg.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>Art Of CSS</p>
-    <p><strong>Art Of CSS(2020)</strong></p>
-    <p class="price"> <span class="gach">$323.00</span> <span>$127.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 1.2k</p>
-    <p class="sale"> -60.68%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/font-end/Eloquent JavaScript/Eloquent JavaScript.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>Eloquent JavaScript</p>
-    <p><strong>Eloquent JavaScript(2019)</strong></p>
-    <p class="price"> <span class="gach">$872.00</span> <span>$800.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 10k</p>
-    <p class="sale"> -8.25%</p>
-</div>
-</div>
-<div class="product">
-    <a href="">
-<img src="../BOOK_FOR_PROJECT/WEB_DEVELOPER PROGRAMING/font-end/Getting Started with React JS/Getting Started with React JS.jpg" alt="" width="200px" height="300px">
-    </a>
-<div class="description">
-    <p>Getting Started with React JS</p>
-    <p><strong>Getting Started with React JS(2015)</strong></p>
-    <p class="price"> <span class="gach">$900.00</span> <span>$120.00</span></p>
-    <p class="status"><i class="fa-solid fa-circle-check"></i> <span>Còn hàng</span></p>
-    <p class="soluongban">Đã bán 999k</p>
-    <p class="sale"> 86.66%</p>
-</div>
-</div>
+  </div>
+<?php
+}
+?>
+<!-- end here -->
+           
 
            
            
