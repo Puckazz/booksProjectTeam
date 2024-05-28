@@ -79,10 +79,10 @@ $conn->close();
         </div>
         <div class="inner-menu">
           <ul>
-            <li><a href="../index.html">Trang Chủ</a></li>
+            <li><a href="../">Trang Chủ</a></li>
             <li><a href="#">Nổi bật</a></li>
             <li><a href="#">Khuyến Mãi</a></li>
-            <li><a href="./sanPhamGame.html">Sản Phẩm</a></li>
+            <li><a href="./sanPhamGame.php">Sản Phẩm</a></li>
             <li><a href="#">Liên Hệ</a></li>
           </ul>
         </div>
