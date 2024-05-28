@@ -103,13 +103,16 @@ $conn->close();
   <!-- end header -->
   <div class="container1">
     <div class="all">
-      <!-- login -->
+    
       <!-- login -->
       <div class="login">
-        <form action="" method="post" novalidate autocomplete="on">
+        <form action="" method="post" autocomplete="on">
           <h1>ĐĂNG NHẬP</h1>
           <p class="title_username text_login">Tên tài khoản hoặc địa chỉ email</p>
-          <input type="text" class="textfield_taikhoan" name="username">
+
+          <!-- giữ nguyên các trường tên nếu người dùng điền đúng -->
+          <input type="text" class="textfield_taikhoan" name="username" value="<?php if(!empty($username)) echo $username ?>">
+
           <!-- Hiển thị lỗi username -->
           <?php if (isset($error['username'])) {
             echo "<p class='error'>" . $error['username'] . "</p>";
@@ -131,7 +134,7 @@ $conn->close();
         </form>
       </div>
 
-      <form action="" method="post" novalidate autocomplete="on">
+      <form action="" method="post"  autocomplete="on">
         <!-- end login -->
 
         <!-- sign in -->
