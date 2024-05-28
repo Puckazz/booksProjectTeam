@@ -152,6 +152,11 @@ input:hover
     width: 490px;
     height: 40px;
 }
+/* proccess error login */
+.error{
+  font-size: 18px;
+  color: red;
+}
 /* footer */
 .footter{
     background-color: #464660;
