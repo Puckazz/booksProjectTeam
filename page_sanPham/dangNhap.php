@@ -23,28 +23,37 @@ if (isset($_POST['bt_login'])) {
   if (empty($_POST['username'])) {
     $error['username'] = "Vui lòng nhập username";
   } else {
-    $username = $_POST['username'];
+    // kiem tra tinh hop le cua du lieu
+    if (!(strlen($_POST['username']) >= 6 && strlen($_POST['username']) <= 32)) {
+      $error['username'] = "tên đăng nhập yêu cầu từ 6-32 kí tự";
+    } else
+      $username = $_POST['username'];
   }
 
   // Kiểm tra nhập password
   if (empty($_POST['password'])) {
     $error['password'] = "Vui lòng nhập password";
   } else {
-    $password = $_POST['password'];
-  }
-
-  // Kiểm tra thông tin đăng nhập
-  if (empty($error)) {
-    $sql = "SELECT * FROM customers WHERE username='$username' AND password_customer='$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-      // Đăng nhập thành công
-      $redict_to = $_POST['direct_to'];
-      header("Location:{$redict_to}");
+    $patter = "/^([A-Z]){1}([\w_\.!#$%^&*()]+){5,31}$/";
+    if (!preg_match($patter, $_POST['password'], $matches)) {
+      $error['password'] = "bắt đầu kí tự phải viết hoa và từ 5-31 kí tự";
     } else {
-      // Đăng nhập thất bại
-      $error['login'] = "Tên người dùng hoặc mật khẩu không đúng!";
+      $password = $_POST['password'];
+    }
+
+    // Kiểm tra thông tin đăng nhập
+    if (empty($error)) {
+      $sql = "SELECT * FROM customers WHERE username='$username' AND password_customer='$password'";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+        // Đăng nhập thành công
+        $redict_to = $_POST['direct_to'];
+        header("Location:{$redict_to}");
+      } else {
+        // Đăng nhập thất bại
+        $error['login'] = "Tên người dùng hoặc mật khẩu không đúng!";
+      }
     }
   }
 }
@@ -103,7 +112,7 @@ $conn->close();
   <!-- end header -->
   <div class="container1">
     <div class="all">
-    
+
       <!-- login -->
       <div class="login">
         <form action="" method="post" autocomplete="on">
@@ -111,7 +120,7 @@ $conn->close();
           <p class="title_username text_login">Tên tài khoản hoặc địa chỉ email</p>
 
           <!-- giữ nguyên các trường tên nếu người dùng điền đúng -->
-          <input type="text" class="textfield_taikhoan" name="username" value="<?php if(!empty($username)) echo $username ?>">
+          <input type="text" class="textfield_taikhoan" name="username" value="<?php if (!empty($username)) echo $username ?>">
 
           <!-- Hiển thị lỗi username -->
           <?php if (isset($error['username'])) {
@@ -134,7 +143,7 @@ $conn->close();
         </form>
       </div>
 
-      <form action="" method="post"  autocomplete="on">
+      <form action="" method="post" autocomplete="on">
         <!-- end login -->
 
         <!-- sign in -->
