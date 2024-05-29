@@ -1,5 +1,5 @@
 <?php
-
+require '../includes/validation.php';
 
 $servername = "localhost";
 $dbusername = "root";
@@ -23,31 +23,41 @@ if (isset($_POST['bt_login'])) {
   if (empty($_POST['username'])) {
     $error['username'] = "Vui lòng nhập username";
   } else {
-    $username = $_POST['username'];
-  }
+    // kiem tra tinh hop le cua du lieu
+    if (is_username($_POST['username'])) {
+      $username = $_POST['username'];
+    } else{
+      $error['username'] = "tên đăng nhập yêu cầu từ 6-32 kí tự";}
+    }
 
-  // Kiểm tra nhập password
-  if (empty($_POST['password'])) {
-    $error['password'] = "Vui lòng nhập password";
-  } else {
-    $password = $_POST['password'];
-  }
 
-  // Kiểm tra thông tin đăng nhập
-  if (empty($error)) {
-    $sql = "SELECT * FROM customers WHERE username='$username' AND password_customer='$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-      // Đăng nhập thành công
-      $redict_to = $_POST['direct_to'];
-      header("Location:{$redict_to}");
+    // Kiểm tra nhập password
+    if (empty($_POST['password'])) {
+      $error['password'] = "Vui lòng nhập password";
     } else {
-      // Đăng nhập thất bại
-      $error['login'] = "Tên người dùng hoặc mật khẩu không đúng!";
+      if (is_password($_POST['password'])) {
+        $password = $_POST['password'];
+      } else {
+        $error['password'] = "bắt đầu kí tự phải viết hoa và từ 5-31 kí tự";
+      }
+
+      // Kiểm tra thông tin đăng nhập
+      if (empty($error)) {
+        $sql = "SELECT * FROM customers WHERE username='$username' AND password_customer='$password'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+          // Đăng nhập thành công
+          $redict_to = $_POST['direct_to'];
+          header("Location:{$redict_to}");
+        } else {
+          // Đăng nhập thất bại
+          $error['login'] = "Tên người dùng hoặc mật khẩu không đúng!";
+        }
+      }
     }
   }
-}
+
 
 // Đóng kết nối
 $conn->close();
@@ -58,7 +68,6 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,10 +88,10 @@ $conn->close();
         </div>
         <div class="inner-menu">
           <ul>
-            <li><a href="../index.html">Trang Chủ</a></li>
+            <li><a href="../index.php">Trang Chủ</a></li>
             <li><a href="#">Nổi bật</a></li>
             <li><a href="#">Khuyến Mãi</a></li>
-            <li><a href="./sanPhamGame.php">Sản Phẩm</a></li>
+            <li><a href="./sanPhamGame.html">Sản Phẩm</a></li>
             <li><a href="#">Liên Hệ</a></li>
           </ul>
         </div>
@@ -103,35 +112,39 @@ $conn->close();
   <!-- end header -->
   <div class="container1">
     <div class="all">
-      <!-- login -->
+
       <!-- login -->
       <div class="login">
-        <form action="" method="post" novalidate autocomplete="on">
+        <form action="" method="post" autocomplete="on">
           <h1>ĐĂNG NHẬP</h1>
           <p class="title_username text_login">Tên tài khoản hoặc địa chỉ email</p>
-          <input type="text" class="textfield_taikhoan" name="username">
+
+          <!-- giữ nguyên các trường tên nếu người dùng điền đúng -->
+          <input type="text" class="textfield_taikhoan" name="username" value="<?php if (!empty($username)) echo $username ?>">
+
           <!-- Hiển thị lỗi username -->
-          <?php if (isset($error['username'])) {
-            echo "<p class='error'>" . $error['username'] . "</p>";
-          } ?>
+          <?php echo form_error('username') ?>
+
+
           <p class="title_matkhau text_login">Mật khẩu*</p>
           <input type="password" class="textfield_matkhau" name="password">
+
+
           <!-- Hiển thị lỗi password -->
-          <?php if (isset($error['password'])) {
-            echo "<p class='error'>" . $error['password'] . "</p>";
-          } ?>
+          <?php echo form_error('password') ?>
+
+
           <p class="text_login"> <input type="checkbox" class="tickghinho"> Ghi nhớ mật khẩu</p>
           <input type="submit" class="button_login" value="ĐĂNG NHẬP" name="bt_login">
           <a href="" class="quenmatkhau">Quên mật khẩu</a>
           <!-- Hiển thị lỗi đăng nhập -->
-          <?php if (isset($error['login'])) {
-            echo "<p class='error'>" . $error['login'] . "</p>";
-          } ?>
+          <?php echo form_error('login') ?>
+         
           <input type="hidden" name="direct_to" id="" value="../page_shop_cart/cart.php">
         </form>
       </div>
 
-      <form action="" method="post" novalidate autocomplete="on">
+      <form action="" method="post" autocomplete="on">
         <!-- end login -->
 
         <!-- sign in -->
