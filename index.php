@@ -24,6 +24,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <?php include './loader/loader.php'; ?>
   </head>
   <body>
     <!-- Header -->
@@ -385,5 +387,7 @@
       </div>
     </footer>
     <!--end footter -->
+
+    <script src="./loader/loader.js"></script>
   </body>
 </html>

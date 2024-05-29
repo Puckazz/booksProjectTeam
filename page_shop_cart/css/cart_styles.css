@@ -57,45 +57,6 @@
 
 /* end header */
 
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
-    transition: opacity 0.75s, visibility 0.75s;
-    z-index: 9999;
-}
-
-.loader--hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader::after {
-    content: "";
-    width: 50px;
-    height: 50px;
-    /* border: 8px dotted #dddddd; */
-    border: 8px dotted #fcbd34;
-    /* border-top-color: #1d5b79; */
-    border-radius: 50%;
-    animation: loading 0.75s ease infinite;
-}
-
-@keyframes loading {
-    from {
-        transform: rotate(0turn);
-    }
-    to {
-        transform: rotate(1turn);
-    }
-}
-
 .cart {
     display: flex;
     justify-content: center;
@@ -230,7 +191,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2px 10px;
+    padding: 5px 10px;
     border: 1px solid #bbbfc4;
     border-radius: 5px;
     outline: none;
@@ -253,7 +214,7 @@
     pointer-events: none;
 }
 .info_quantity button:first-child {
-    font-size: 24px;
+    font-size: 20px;
 }
 .cart_checkout {
     display: flex;
@@ -275,7 +236,7 @@
     background: none;
     color: #1d5b79;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     border: 2px solid #1d5b79;
     border-radius: 5px;
     outline: none;
@@ -361,6 +322,31 @@
 #message-container {
     color: #1d5b79;
     font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 130px 0 160px;
+    display: none;
+}
+#message-container img{
+    width: 200px;
+}
+#message-container a {
+    color: #1d5b79;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 12px 16px;
+    border: 2px solid #1d5b79;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: all 0.2s ease;
+}
+#message-container a:hover {
+    background-color: #1d5b79;
+    color: #fff;
 }
 
 /* discount code */
@@ -575,13 +561,13 @@
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    /* font-weight: 500; */
+    font-weight: 500;
     position: absolute;
     top: 5px;
     right: 8px;
     color: #fff;
     background-color: #ff0000;
-    width: 34px;
+    width: 36px;
     height: 20px;
     border-radius: 25px;
 }
@@ -603,6 +589,8 @@
 }
 .item_info p {
     font-size: 15px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -629,6 +617,7 @@
     border-radius: 5px;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 .container_product .arrow {
     display: flex;

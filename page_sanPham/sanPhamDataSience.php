@@ -19,8 +19,9 @@ try {
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Truy vấn dữ liệu từ bảng sản phẩm
+  
   $stmt = $pdo->query("SELECT 
-    name_book,
+    ID_Book, name_book,
     CONCAT(ROUND(discount * 100, 2), '%') AS discount_percentage,
     buyPrice,
     salePrice,
@@ -158,7 +159,7 @@ $conn->close();
 
             ?>
               <div class="product">
-                <a href="">
+                <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $item['ID_Book']; ?>">
                   <img src="<?php echo $item['link'] ?>" alt="" width="200px" height="300px">
                 </a>
                 <div class="description">
