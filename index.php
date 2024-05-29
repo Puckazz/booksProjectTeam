@@ -279,7 +279,7 @@
           <div class="right_arrow arrow"><i class='bx bx-chevron-right'></i></div>
         <div class="container_info">
           <div class="info_author">
-            <img src="/image/David-Malan.png" alt="authorImg">
+            <img src="./image/David-Malan.png" alt="authorImg">
             <p class="name">David Malan</p>
             <span>PYTHON PROFESSOR</span>
             <p class="descript">Known for his in-depth coverage of
@@ -292,7 +292,7 @@
             </div>
           </div>
           <div class="info_author">
-            <img src="/image/David-Malan.png" alt="authorImg">
+            <img src="./image/David-Malan.png" alt="authorImg">
             <p class="name">David Malan</p>
             <span>PYTHON PROFESSOR</span>
             <p class="descript">Known for his in-depth coverage of
@@ -305,7 +305,7 @@
             </div>
           </div>
           <div class="info_author">
-            <img src="/image/David-Malan.png" alt="authorImg">
+            <img src="./image/David-Malan.png" alt="authorImg">
             <p class="name">David Malan</p>
             <span>PYTHON PROFESSOR</span>
             <p class="descript">Known for his in-depth coverage of

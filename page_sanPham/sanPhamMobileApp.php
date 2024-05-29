@@ -20,7 +20,7 @@ try {
 
   // Truy vấn dữ liệu từ bảng sản phẩm
   $stmt = $pdo->query("SELECT 
-    name_book,
+    name_book,ID_Book,
     CONCAT(ROUND(discount * 100, 2), '%') AS discount_percentage,
     buyPrice,
     salePrice,
@@ -156,13 +156,13 @@ $conn->close();
 
             ?>
               <div class="product">
-                <a href="">
+                <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $item['ID_Book'] ?>">
                   <img src="<?php echo $item['link'] ?>" alt="" width="200px" height="300px">
                 </a>
                 <div class="description">
                   <p><?php echo $item['name_book'] ?></p>
                   <p><strong> <?php echo $item['name_book'] . "({$item['year_publish']})" ?></strong></p>
-                  <p class="price"> <span class="gach">$<?php echo $item['buyPrice'] ?></span> <span>$<?php echo $item['salePrice'] ?></span></p>
+                  <p class="price"> <span class="gach"><?php echo $item['buyPrice']. ".00đ" ?></span> <span><?php echo $item['salePrice']. ".00đ" ?></span></p>
                   <p class="status"><i class="fa-solid fa-circle-check"></i> <span><?php echo $item['status'] ?></span></p>
                   <p class="soluongban">Đã bán 20k</p>
                   <p class="sale">-<?php echo $item['discount_percentage'] ?></p>

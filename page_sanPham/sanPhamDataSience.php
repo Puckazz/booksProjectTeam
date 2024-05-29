@@ -165,7 +165,7 @@ $conn->close();
                 <div class="description">
                   <p><?php echo $item['name_book'] ?></p>
                   <p><strong> <?php echo $item['name_book'] . "({$item['year_publish']})" ?></strong></p>
-                  <p class="price"> <span class="gach">$<?php echo $item['buyPrice'] ?></span> <span>$<?php echo $item['salePrice'] ?></span></p>
+                  <p class="price"> <span class="gach"><?php echo $item['buyPrice'].".00đ" ?></span> <span><?php echo $item['salePrice']. ".00đ" ?></span></p>
                   <p class="status"><i class="fa-solid fa-circle-check"></i> <span><?php echo $item['status'] ?></span></p>
                   <p class="soluongban">Đã bán 20k</p>
                   <p class="sale">-<?php echo $item['discount_percentage'] ?></p>
