@@ -17,6 +17,8 @@ if (!$conn) {
     <link rel="stylesheet" href="../styles/base.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <?php include '../loader/loader.php'; ?>
 </head>
 
 <body>
@@ -32,19 +34,19 @@ if (!$conn) {
                 </div>
                 <div class="inner-menu">
                     <ul>
-                        <li><a href="../index.html">Trang Chủ</a></li>
+                        <li><a href="../index.php">Trang Chủ</a></li>
                         <li><a href="#">Nổi bật</a></li>
                         <li><a href="#">Khuyến Mãi</a></li>
                         <li>
                             <a href="../page_sanPham/sanPhamWeb.html">Sản phẩm</a>
                         </li>
-                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="../page_About_us/aboutUS.php">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <div class="inner-icon">
                     <ul>
                         <li>
-                            <a href="../page_sanPham/dangNhap.html"><i class="fa-regular fa-user"></i></a>
+                            <a href="../page_sanPham/dangNhap.php"><i class="fa-regular fa-user"></i></a>
                         </li>
                         <li>
                             <a href="../page_shop_cart/cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
@@ -57,7 +59,6 @@ if (!$conn) {
     <h2 class="sale">Giảm giá 20% cho tất cả sách hôm nay</h2>
 
     <!-- end header -->
-    <div class="loader"></div>
     <div class="cart">
         <div class="cart_header">
             <h1>Giỏ Hàng</h1>
@@ -99,7 +100,7 @@ if (!$conn) {
 
             if (isset($_GET['remove'])) {
                 $remove_id = $_GET['remove'];
-                mysqli_query($conn, "DELETE FROM cart WHERE name_book = '$remove_id'") or die("Query failed");
+                mysqli_query($conn, "DELETE FROM cart WHERE id_book = '$remove_id'") or die("Query failed");
                 header("Location:cart.php");
             }
 
@@ -125,9 +126,11 @@ if (!$conn) {
                 <form action="" method="post" style="width: 100%;">
                     <div class="info_container info_product">
                         <div class="info_book item-1">
-                            <img src="<?= $row['img_book']; ?>" alt="book1" />
+                            <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['id_book']; ?>"><img src="<?= $row['img_book']; ?>" alt="book1" /></a>
                             <div class="info_text">
-                                <p><?= $row['name_book']; ?></p>
+                                <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['id_book']; ?>">
+                                    <p><?= $row['name_book']; ?></p>
+                                </a>
                                 <p>by <?= $row['author_book']; ?></p>
                                 <p>Published <?= $row['year_publish']; ?></p>
                                 <p>ISBN <?= $row['id_book']; ?></p>
@@ -137,11 +140,11 @@ if (!$conn) {
                                         <span class="num"><?= $row['quantity']; ?></span>
                                         <button class="plus" type="submit" name="plus">+</button>
                                     </div>
-                                    <a href="cart.php?remove=<?php echo $row['name_book'] ?>" class="btn-rm">Xoá</a>
+                                    <a href="cart.php?remove=<?php echo $row['id_book'] ?>" class="btn-rm">Xoá</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="info_price item-2"><?= $row['price_book']; ?>,000</div>
+                        <div class="info_price item-2"><?= $row['price_book']; ?>000</div>
                         <div class="info_quantity item-3">
                             <button class="minus" type="submit" name="minus">-</button>
                             <span class="num"><?= $row['quantity']; ?></span>
@@ -149,7 +152,7 @@ if (!$conn) {
                             <button class="plus" type="submit" name="plus">+</button>
                         </div>
                         <div class="info_total item-4">
-                            <span class="total"><?= $row['price_book'] * $row['quantity']; ?>,000</span>
+                            <span class="total"><?= $row['price_book'] * $row['quantity']; ?>000</span>
                         </div>
                     </div>
                 </form>
@@ -170,7 +173,7 @@ if (!$conn) {
             <div class="cart_pay">
                 <div class="column_item pay_total">
                     <p>TỔNG CỘNG</p>
-                    <p class="total_all" id="total_all"><?= $total_all; ?>,000</p>
+                    <p class="total_all" id="total_all"><?= $total_all; ?>000</p>
                 </div>
                 <div class="column_item pay_discount">
                     <i class="bx bxs-discount"></i>
@@ -266,12 +269,16 @@ if (!$conn) {
                                 <div class="card">
                                     <i class="bx bx-heart"></i>
                                     <span class="discount">-<?= $row['discount'] * 100; ?>%</span>
-                                    <div class="img_item"><img src="<?= $row['link']; ?>" alt="book1" loading="lazy" /></div>
+                                    <div class="img_item">
+                                        <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['ID_Book']; ?>"><img src="<?= $row['link']; ?>" alt="book1" loading="lazy" /></a>
+                                    </div>
                                 </div>
-                                <p><?= $row['name_book']; ?></p>
+                                <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['ID_Book']; ?>">
+                                    <p><?= $row['name_book']; ?></p>
+                                </a>
                                 <div class="price_item">
-                                    <span class="sale_price"><?= $row['salePrice']; ?>,000</span>
-                                    <del class="buy_price"><?= $row['buyPrice']; ?>,000</del>
+                                    <span class="sale_price"><?= $row['salePrice']; ?>000</span>
+                                    <del class="buy_price"><?= $row['buyPrice']; ?>000</del>
                                 </div>
                                 <button type="submit" name="addToCart">Thêm vào giỏ</button>
 
@@ -337,6 +344,7 @@ if (!$conn) {
     <!-- end footer  -->
 
     <script src="js/cart.js"></script>
+    <script src="../loader/loader.js"></script>
 </body>
 
 </html>

@@ -9,12 +9,16 @@
     margin-right: auto;
 }
 
-*{
+*, ::before, ::after {
     box-sizing: border-box;
-    font-family : 'Roboto', sans-serif;
     margin: 0;
-
+    padding: 0;
 }
+
+body {
+    font-family : 'Roboto', sans-serif;
+}
+
 input{
     outline: none;
     border: none;

@@ -14,9 +14,10 @@ function checkIfCartIsEmpty() {
     }
 }
 function showEmptyCartMessage() {
-    var messageContainer = document.getElementById("message-container");
+    const messageContainer = document.getElementById("message-container");
+    messageContainer.style.display = "flex";
     messageContainer.innerHTML =
-        "<div class='empty-cart-message' style='margin: 180px 0;'>Không có sản phẩm nào trong giỏ hàng.</div>";
+        "<img src='img/cart_empty.jpg' alt='cart_empty'><div class='empty-cart-message'>Không có sản phẩm nào trong giỏ hàng của bạn!</div><a href='../index.php'>Mua sắm ngay</a>";
 }
 
 // format price
@@ -93,19 +94,5 @@ arrowBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
         cardlike.scrollLeft +=
             btn.id === "prev" ? -firstCardWidth : firstCardWidth;
-    });
-});
-
-// Load
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-
-    loader.classList.add("loader--hidden");
-
-    loader.addEventListener("transitionend", () => {
-        // document.body.removeChild(loader);
-        if (loader && loader.parentNode) {
-            loader.parentNode.removeChild(loader);
-        }
     });
 });

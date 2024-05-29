@@ -20,9 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/checkout_styles.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <title>Thanh Toán Đơn Hàng</title>
+
+    <?php include '../loader/loader.php'; ?>
 </head>
 
 <body>
+    <div class="popup_container">
+        <div class="popup_box">
+            <i class='bx bxs-check-circle'></i>
+            <h4>Đặt hàng thành công</h4>
+            <p>Cảm ơn bạn đã mua hàng tại WAMPO. Đơn hàng sẽ sớm được giao đến tay bạn!</p>
+            <button onclick="window.location.href = '../index.php'" class="back_btn">Trở Về Trang Chủ</button>
+        </div>
+    </div>
+
     <div class="checkout">
         <form action="" class="column_wrapper method_pay-form">
             <h3>THÔNG TIN THANH TOÁN</h3>
@@ -80,29 +91,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $select_cart = mysqli_query($conn, "SELECT * FROM cart");
             while ($row = mysqli_fetch_assoc($select_cart)) { ?>
                 <div class="row_item item_product">
-                    <p><?= $row['name_book']; ?>  x<?= $row['quantity']; ?></p>
-                    <span><?= $row['price_book'] * $row['quantity']; ?>,000<u>đ</u></span>
+                    <p><?= $row['name_book']; ?> x<?= $row['quantity']; ?></p>
+                    <span class="price"><?= $row['price_book'] * $row['quantity']; ?>000</span>
                 </div>
-            <?php            }
+            <?php
+            }
             ?>
             <div class="row_item discount_code">
-                <input type="text" placeholder="Mã giảm giá" class="form_input" />
-                <button type="submit">Sử dụng</button>
+                <input type="text" placeholder="Mã giảm giá" class="form_input" id="voucher" />
+                <button type="submit" id="use_voucher">Sử dụng</button>
             </div>
             <div class="row_item item_2">
-                <span>Tạm tính</span> <span><?= $total_books; ?>,000<u>đ</u></span>
+                <span>Tạm tính</span> <span class="total"><?= $total_books; ?>000</span>
             </div>
+            <div class="row_item item_voucher" id="item_voucher"></div>
             <p class="shipping pad">Giao hàng</p>
             <div class="shipping pad">
-                <input type="radio" name="ship" checked /> Đơn hàng từ 250K
+                <input type="radio" name="ship" checked id="shipping-1" /> Đơn hàng từ 250K
                 được miễn phí giao hàng
             </div>
             <div class="shipping">
-                <input type="radio" name="ship" /> Đồng giá: 20,000<u>đ</u>
+                <input type="radio" name="ship" id="shipping-2" /> Đồng giá: 20,000 <u>đ</u>
             </div>
             <div class="row_item item_3">
-                <span>Tổng</span> <span><?= $total_books; ?>,000<u>đ</u></span>
+                <span>Tổng</span> <span class="total_all"><?= $total_books; ?>000</span>
             </div>
+            <?php mysqli_close($conn); ?>
             <p class="shipping pad">Phương thức thanh toán</p>
             <div class="method_pay">
                 <div class="row_item">
@@ -125,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             <div class="row_item order_item">
-                <button type="submit">Đặt hàng</button>
+                <button type="submit" class="show_popup">Đặt hàng</button>
                 <p>
                     Tất cả thông tin của bạn chỉ được sử dụng cho việc đặt
                     hàng và cải thiện trải nghiệm sản phẩm. Ngoài ra được
@@ -139,6 +153,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
+
+    <script src="js/checkouts.js"></script>
+    <script src="../loader/loader.js"></script>
 </body>
 
 </html>
