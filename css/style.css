@@ -50,8 +50,7 @@
   text-align: center;
 }
 /* Section one */
-.section-one {
-}
+
 .section-one .inner-wrap {
   display: flex;
   background-color: var(--color-one);
