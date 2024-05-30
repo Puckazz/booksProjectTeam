@@ -1,44 +1,7 @@
 <?php
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "bookdatabase";
+require "../includes/database.php";
 
-// Tạo kết nối MySQLi
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Kiểm tra kết nối MySQLi
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
-
-// lấy dữ liệu từ database
-try {
-    // Tạo kết nối PDO
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Truy vấn dữ liệu từ bảng sản phẩm
-    $stmt = $pdo->query("SELECT 
-    name_book, ID_Book,
-    CONCAT(ROUND(discount * 100, 2), '%') AS discount_percentage,
-    buyPrice,
-    salePrice,
-    year_publish,
-    link ,
-    status
-FROM 
-    bookdatabase.book 
-WHERE 
-    name_category_book = 'Game';
-");
-    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo 'Kết nối không thành công: ' . $e->getMessage();
-}
-
-// Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
-$conn->close();
+$products = getDatabaseSanPham("Game");
 ?>
 
 <!DOCTYPE html>

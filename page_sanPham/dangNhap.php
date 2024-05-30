@@ -27,7 +27,7 @@ if (isset($_POST['bt_login'])) {
     if (is_username($_POST['username'])) {
       $username = $_POST['username'];
     } else{
-      $error['username'] = "tên đăng nhập yêu cầu từ 6-32 kí tự";}
+      $error['username'] = "tên đăng nhập yêu cầu từ 5-35 kí tự";}
     }
 
 
@@ -93,8 +93,8 @@ $conn->close();
             <li><a href="../index.php">Trang Chủ</a></li>
             <li><a href="#">Nổi bật</a></li>
             <li><a href="#">Khuyến Mãi</a></li>
-            <li><a href="./sanPhamGame.html">Sản Phẩm</a></li>
-            <li><a href="#">Liên Hệ</a></li>
+            <li><a href="./sanPhamGame.php">Sản Phẩm</a></li>
+            <li><a href="../page_About_us/aboutUS.php">Liên Hệ</a></li>
           </ul>
         </div>
         <div class="inner-icon">
@@ -103,7 +103,7 @@ $conn->close();
               <a href="#"><i class="fa-regular fa-user"></i></a>
             </li>
             <li>
-              <a href="../page_shop_cart/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="../page_shop_cart/cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
             </li>
           </ul>
         </div>
