@@ -14,6 +14,7 @@ $products = getDatabaseSanPham("Game");
     <link rel="stylesheet" href="../styles/sanpham.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/base.css">
+    <?php include '../loader/loader.php'; ?>
 </head>
 
 <body>
@@ -119,7 +120,7 @@ $products = getDatabaseSanPham("Game");
 
                         ?>
                             <div class="product">
-                                <a href=".../page_chiTietSanPham/detailBook.php?showbook=<?php echo $item['ID_Book']?>">
+                                <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $item['ID_Book']?>">
                                     <img src="<?php echo $item['link'] ?>" alt="" width="200px" height="300px">
                                 </a>
                                 <div class="description">
@@ -218,6 +219,7 @@ $products = getDatabaseSanPham("Game");
                 </div>
             </footer>
             <!-- end footer -->
+            <script src="../loader/loader.js"></script>
 </body>
 
 </html>

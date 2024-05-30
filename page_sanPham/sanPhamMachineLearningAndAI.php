@@ -15,6 +15,7 @@ $products = getDatabaseSanPham("Machine Learning");
     <link rel="stylesheet" href="../styles/sanpham.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/base.css">
+    <?php include '../loader/loader.php'; ?>
 </head>
 
 <body>
@@ -125,7 +126,7 @@ $products = getDatabaseSanPham("Machine Learning");
                                 <div class="description">
                                     <p><?php echo $item['name_book'] ?></p>
                                     <p><strong> <?php echo $item['name_book'] . "({$item['year_publish']})" ?></strong></p>
-                                    <p class="price"> <span class="gach"><?php echo $item['buyPrice'] .".00đ" ?></span> <span><?php echo $item['salePrice']. ".00đ" ?></span></p>
+                                    <p class="price"> <span class="gach"><?php echo $item['buyPrice'] . ".00đ" ?></span> <span><?php echo $item['salePrice'] . ".00đ" ?></span></p>
                                     <p class="status"><i class="fa-solid fa-circle-check"></i> <span><?php echo $item['status'] ?></span></p>
                                     <p class="soluongban">Đã bán 20k</p>
                                     <p class="sale">-<?php echo $item['discount_percentage'] ?></p>
@@ -219,6 +220,7 @@ $products = getDatabaseSanPham("Machine Learning");
                 </div>
             </footer>
             <!-- end footer -->
+            <script src="../loader/loader.js"></script>
 </body>
 
-                    </html>
+</html>
