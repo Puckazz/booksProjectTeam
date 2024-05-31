@@ -4,7 +4,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $total_books = 0;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
     $total_books = $_POST['total_book'];
 }
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <i class='bx bxs-check-circle'></i>
             <h4>Đặt hàng thành công</h4>
             <p>Cảm ơn bạn đã mua hàng tại WAMPO. Đơn hàng sẽ sớm được giao đến tay bạn!</p>
-            <button onclick="window.location.href = '../index.php'" class="back_btn">Trở Về Trang Chủ</button>
+            <form action="../index.php" method="post"><button type="submit" name="order" class="back_btn">Trở Về Trang Chủ</button></form>
         </div>
     </div>
 
@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="null" selected>
                         <p>Chọn Tỉnh/Thành phố</p>
                     </option>
+                    <option value="Bình Định">Bình Định</option>
                 </select>
                 <div class="icon_container">
                     <i class="bx bxs-down-arrow"></i>
@@ -62,6 +63,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="select_container">
                 <select name="" id="form_select">
                     <option value="null" selected>Chọn Quận/Huyện</option>
+                    <option value="Huyện An Lão">Huyện An Lão</option>
+                    <option value="Huyện Vân Canh">Huyện Vân Canh</option>
+                    <option value="Huyện Tây Sơn">Huyện Tây Sơn</option>
+                    <option value="Huyện Hoài Ân">Huyện Hoài Ân</option>
+                    <option value="Huyện Phù Mỹ">Huyện Phù Mỹ</option>
+                    <option value="Huyện Vĩnh Thạnh">Huyện Vĩnh Thạnh</option>
+                    <option value="Thành phố Quy Nhơn">Thành phố Quy Nhơn</option>
+                    <option value="Thị xã An Nhơn">Thị xã An Nhơn</option>
+                    <option value="Huyện Phù Cát">Huyện Phù Cát</option>
+                    <option value="Huyện Hoài Nhơn">Huyện Hoài Nhơn</option>
+                    <option value="Huyện Tuy Phước">Huyện Tuy Phước</option>
                 </select>
                 <div class="icon_container">
                     <i class="bx bxs-down-arrow"></i>
@@ -71,6 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="select_container">
                 <select name="" id="form_select">
                     <option value="null" selected>Chọn Phường/Xã</option>
+                    <option value="Phường Ngô Mây">Phường Ngô Mây</option>
+                    <option value="Phường Đống Đa">Phường Đống Đa</option>
+                    <option value="Phường Quang Trung">Phường Quang Trung</option>
                 </select>
                 <div class="icon_container">
                     <i class="bx bxs-down-arrow"></i>
