@@ -37,6 +37,8 @@ btnVoucher.addEventListener("click", function () {
             "<span>Mã giảm giá</span> <span>-100,000 <u>đ</u></span>";
         dcPrice.style.display = "flex";
         deduction(100000);
+        btnVoucher.style.backgroundColor = "#8E8A8E";
+        btnVoucher.disabled = true;
     } else {
         dcPrice.innerHTML =
             "<span style='color: #ff0000; font-size: 14px; margin: 0;'>Đơn hàng của bạn không thể sử dụng mã giảm giá này !</span>";
@@ -78,8 +80,4 @@ const popupContainer = document.querySelector(".popup_container");
 
 showPopup.addEventListener("click", () => {
     popupContainer.classList.add("active");
-
-    setTimeout(function () {
-        window.location.href = "../index.php";
-    }, 5000);
 });

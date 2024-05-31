@@ -183,6 +183,7 @@ if (!$conn) {
 <?php }
       }
     }
+    mysqli_close($conn);
 ?>
 
 <!-- footer -->
