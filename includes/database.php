@@ -44,4 +44,22 @@ WHERE
 // Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
 $conn->close();
  }
+
+
+function getConnect(){
+  $servername = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "bookdatabase";
+
+// Tạo kết nối MySQLi
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+// Kiểm tra kết nối MySQLi
+if ($conn->connect_error) {
+  die("Kết nối thất bại: " . $conn->connect_error);
+}
+return $conn;
+
+}
 ?>

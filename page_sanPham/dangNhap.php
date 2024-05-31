@@ -122,14 +122,14 @@ $conn->close();
           <p class="title_username text_login">Tên tài khoản hoặc địa chỉ email</p>
 
           <!-- giữ nguyên các trường tên nếu người dùng điền đúng -->
-          <input type="text" class="textfield_taikhoan" name="username" value="<?php if (!empty($username)) echo $username ?>">
+          <input type="text" class="form-input" name="username" value="<?php if (!empty($username)) echo $username ?>">
 
           <!-- Hiển thị lỗi username -->
           <?php echo form_error('username') ?>
 
 
           <p class="title_matkhau text_login">Mật khẩu*</p>
-          <input type="password" class="textfield_matkhau" name="password">
+          <input type="password" class="form-input" name="password">
 
 
           <!-- Hiển thị lỗi password -->
@@ -137,6 +137,7 @@ $conn->close();
 
 
           <p class="text_login"> <input type="checkbox" class="tickghinho"> Ghi nhớ mật khẩu</p>
+          <a href="" class="without-account">Bạn chưa có tài khoản?</a>
           <input type="submit" class="button_login" value="ĐĂNG NHẬP" name="bt_login">
           <a href="" class="quenmatkhau">Quên mật khẩu</a>
           <!-- Hiển thị lỗi đăng nhập -->
@@ -145,21 +146,7 @@ $conn->close();
           <input type="hidden" name="direct_to" id="" value="../page_shop_cart/cart.php">
         </form>
       </div>
-
-      <form action="" method="post" autocomplete="on">
-        <!-- end login -->
-
-        <!-- sign in -->
-        <div class="sign_in">
-          <h1>ĐĂNG KÝ</h1>
-          <p class="text_login">Địa chỉ email*</p>
-          <input type="email" class="textfield_diachimail">
-          <p class="text_login">Mật khẩu sẽ được gửi vào email của bạn</p>
-          <br>
-          <article> tất cả thông tin của bạn chỉ được sử dụng cho việc đặt hàng và cải thiện trải nghiệm sản phẩm. Ngoài ra được Wampo đảm bảo về quyền riêng tư cá nhân theo quy định hợp pháp</article>
-          <input class="button_login" type="submit" name="bt_login" value="ĐĂNG KÍ">
-        </div>
-        <!-- end sign in -->
+     
     </div>
   </div>
   <!-- footer -->

@@ -9,11 +9,6 @@
   font-size: 20px;
   margin-top: 4px;
 }
-.form-input2{
-  width: 400px;
-  height: 45px;
-  font-size: 20px;
-}
 
 body {
     background-image: url(../images/back-ground_login.jpg);
@@ -76,18 +71,22 @@ body {
     width: 100%;  
     display: flex;
     font-size: 30px;
-    height: 100vh;
+    height: auto;
     justify-content: center;
     align-items: center;
 }
 .container1 .all{
-    display: flex;
+  
     padding: 30px;
     font-family: "Roboto", sans-serif;
+    width: auto;
     height: auto;
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
     border-radius: 12px;
-   box-shadow: 2px 2px 3px 6px rgb(216, 223, 156);
+     box-shadow: 2px 2px 3px 6px rgb(216, 223, 156);
+     font-size: 16px;
+     margin: 30px ;
+    
    
 }
 /* code for elements */
@@ -100,8 +99,9 @@ article{
  
 .container1 .login h1{
   text-align: center;
-  font-size: 140%;
+  font-size: 200%;
   padding-bottom: 0.5em;
+  border-bottom: 2px solid black;
 }
 .container1 .login p{
   margin: 0.3em 0em;
@@ -129,32 +129,20 @@ article{
     font-weight: bold;
     border: 2px solid white ;
 }
-.container1 .login .quenmatkhau{
-    width: 270px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #0C359E;
-}
-.container1 .login .quenmatkhau:hover{
-    text-decoration: none;
-    color: pink;
-}
-.container1 .login .without-account{
-  width: 270px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #0C359E;
-}
-.container1 .login .without-account:hover{
-  color: pink;
-}
+
 input{
-    border-radius: 12px;
+    border-radius: 9px;
     border: 3px solid black;
     transition: all 0.5s ease-in-out;
     margin-bottom: 10px;
+    font-size: 10px;
   
+
 }
+.text_login{
+   color: white; 
+}
+  
 input:focus
 {
     box-shadow: 2px 2px 6px 3px aqua;
