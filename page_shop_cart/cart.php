@@ -101,7 +101,6 @@ if (!$conn) {
             if (isset($_GET['remove'])) {
                 $remove_id = $_GET['remove'];
                 mysqli_query($conn, "DELETE FROM cart WHERE id_book = '$remove_id'") or die("Query failed");
-                header("Location:cart.php");
             }
 
             if (isset($_POST['plus'])) {
@@ -185,7 +184,7 @@ if (!$conn) {
                 </div>
                 <form action="./checkouts.php" method="post" style="width: 100%;">
                     <input type="hidden" name="total_book" value="<?php echo $total_all; ?>">
-                    <button class="column_item pay_btn" type="submit">THANH TOÁN</button>
+                    <button class="column_item pay_btn" type="submit" name="checkout">THANH TOÁN</button>
                 </form>
             </div>
         </div>
