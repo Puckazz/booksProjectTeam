@@ -1,3 +1,10 @@
+<?php
+ session_start();
+if(!isset($_SESSION['is-login'])){
+  header("Location: ./page_sanPham/dangnhap.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,6 +59,9 @@
               </li>
               <li>
                 <a href="./page_shop_cart/cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+              </li>
+              <li>
+                <a href="./page_sanPham/dangXuat.php"><i class="fa-solid fa-right-from-bracket"></i></a>
               </li>
             </ul>
           </div>

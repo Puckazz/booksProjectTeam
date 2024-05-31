@@ -1,4 +1,5 @@
 <?php
+ session_start();
 require '../includes/validation.php';
 
 $servername = "localhost";
@@ -33,6 +34,7 @@ if (isset($_POST['bt_login'])) {
 
     // Kiểm tra nhập password
     if (empty($_POST['password'])) {
+
       $error['password'] = "Vui lòng nhập password";
     } else {
       if (is_password($_POST['password'])) {
@@ -48,6 +50,8 @@ if (isset($_POST['bt_login'])) {
 
         if ($result->num_rows > 0) {
           // Đăng nhập thành công
+         
+          $_SESSION['is-login'] = true;
           $redict_to = $_POST['direct_to'];
           header("Location:{$redict_to}");
         } else {
@@ -137,13 +141,13 @@ $conn->close();
 
 
           <p class="text_login"> <input type="checkbox" class="tickghinho"> Ghi nhớ mật khẩu</p>
-          <a href="" class="without-account">Bạn chưa có tài khoản?</a>
+          <a href="./dangKy.php" class="without-account">Bạn chưa có tài khoản?</a>
           <input type="submit" class="button_login" value="ĐĂNG NHẬP" name="bt_login">
           <a href="" class="quenmatkhau">Quên mật khẩu</a>
           <!-- Hiển thị lỗi đăng nhập -->
           <?php echo form_error('login') ?>
          
-          <input type="hidden" name="direct_to" id="" value="../page_shop_cart/cart.php">
+          <input type="hidden" name="direct_to" id="" value="../index.php">
         </form>
       </div>
      
