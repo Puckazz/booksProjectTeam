@@ -8,6 +8,15 @@ if (isset($_POST['order'])) {
   mysqli_query($conn, "DELETE FROM cart") or die("Query failed");
 }
 ?>
+
+<!-- code session  -->
+<?php 
+  session_start();
+  if(!$_SESSION['is-login']){
+    header("Location: ./page_login_logout_signup/dangNhap.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,20 +46,23 @@ if (isset($_POST['order'])) {
         </div>
         <div class="inner-menu">
           <ul>
-            <li><a href="./index.html">Trang Chủ</a></li>
+            <li><a href="index.php">Trang Chủ</a></li>
             <li><a href="#section-three">Nổi bật</a></li>
             <li><a href="#">Khuyến Mãi</a></li>
-            <li><a href="./page_sanPham/sanPhamWeb.html">Sản phẩm</a></li>
-            <li><a href="#">Liên Hệ</a></li>
+            <li><a href="./page_sanPham/sanPhamDevops.php">Sản phẩm</a></li>
+            <li><a href="./page_About_us/aboutUS.php">Liên Hệ</a></li>
           </ul>
         </div>
         <div class="inner-icon">
           <ul>
             <li>
-              <a href="./page_sanPham/dangNhap.html"><i class="fa-regular fa-user"></i></a>
+              <a href="./page_login_logout_signup/dangNhap.php"><i class="fa-regular fa-user"></i></a>
             </li>
             <li>
               <a href="./page_shop_cart/cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+            </li>
+            <li>
+              <a href="./page_login_logout_signup/dangXuat.php"><i class="fa-solid fa-right-from-bracket"></i></a>
             </li>
           </ul>
         </div>
@@ -150,7 +162,7 @@ if (isset($_POST['order'])) {
         while ($row = mysqli_fetch_assoc($select_book)) { ?>
           <div class="inner-box" id="show-more">
             <div class="inner-image">
-              <a href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['ID_Book']; ?>"><img src="<?= $row['link']; ?>" alt="" /></a>
+              <a href="./page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['ID_Book']; ?>"><img src="<?= $row['link']; ?>" alt="" /></a>
             </div>
 
             <div class="inner-content">
