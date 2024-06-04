@@ -1,0 +1,37 @@
+.form{
+    background-image: linear-gradient(0deg, #887997, #e0ccc6);
+    display: flex;
+    
+}
+.form .inner-left{
+    width: 50%;
+   border: #887997 solid 1px;
+   padding: 20px;
+   
+}
+.form label{
+    display: inline-block;
+    margin-bottom: 10px;
+    opacity: 0.7;
+    font-weight: 700;
+}
+.form input{
+    background-color: #D8D8D8;
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.form button{
+    background-color: #464660;
+    width: 150px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+}
+.form .inner-right{
+    flex: 1;
+    border: #887997 solid 1px;
+    padding: 20px;
+}
