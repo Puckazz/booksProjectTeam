@@ -8,6 +8,7 @@
     <title>Document</title>
   </head>
   <body>
+    <?php require "../includes/header.php" ?>
     <div class="form">
       <div class="inner-left">
         <form action="" class="form_profile" method="post">
@@ -25,18 +26,7 @@
           <button class="submit">Lưu thay đổi</button>
         </form>
       </div>
-      <div class="inner-right">
-        <form action="" method="post">
-          <h2>Đổi mật khẩu</h2>
-          <label for="">Mật khẩu hiện tại</label><br />
-          <input type="password" /><br />
-          <label for="">Mật khẩu mới</label><br />
-          <input type="password" /><br />
-          <label for="">Mật khẩu mới</label><br />
-          <input type="password" /><br />
-          <button class="submit">Đổi mật khẩu</button>
-        </form>
-      </div>
     </div>
+    <?php require "../includes/footer.php" ?>
   </body>
 </html>

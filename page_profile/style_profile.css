@@ -1,5 +1,9 @@
+body{
+    background: url(../image/Default_background_for_book_shop_have_purple_dark_1.jpg);
+}
+
 .form{
-    background-image: linear-gradient(0deg, #887997, #e0ccc6);
+    backdrop-filter: blur(8px);
     display: flex;
     
 }

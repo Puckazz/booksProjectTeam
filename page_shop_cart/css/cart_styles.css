@@ -45,10 +45,9 @@
 .nav .inner-icon ul li i {
     font-size: 25px;
     color: #fff;
+    margin-right: 16px;
 }
-.nav .inner-icon ul li:nth-child(2) {
-    margin-left: 15px;
-}
+
 .sale {
     background-color: #fcbd34;
     padding: 20px 0;

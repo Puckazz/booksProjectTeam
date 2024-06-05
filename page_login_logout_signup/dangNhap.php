@@ -52,6 +52,7 @@ if (isset($_POST['bt_login'])) {
           // Đăng nhập thành công
          
           $_SESSION['is-login'] = true;
+          $_SESSION['username'] = $username;
           $redict_to = $_POST['direct_to'];
           header("Location:{$redict_to}");
         } else {

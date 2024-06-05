@@ -127,7 +127,6 @@ margin-bottom: 30px;
    padding-bottom: 3px;
 }
 .container-sanpham .inner-left .sanpham-moi .product-new .description .price{
-  padding-top: 87px;
   color: red;
 }
 .container-sanpham .inner-left .sanpham-moi .product-new .description .price .gach{
@@ -162,7 +161,6 @@ margin-bottom: 30px;
   border: 2px solid black;
   background-size: cover;
   transition: all 0.5s ease-in-out;
-  object-fit: cover;
   aspect-ratio: 3/4;
 }
 .container-sanpham .inner-right .product img:hover{
