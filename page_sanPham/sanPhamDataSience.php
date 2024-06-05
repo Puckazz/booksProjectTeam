@@ -24,6 +24,9 @@ if (!$_SESSION['is-login']) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sản Phẩm</title>
+  
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../styles/sanpham.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -31,10 +34,11 @@ if (!$_SESSION['is-login']) {
 </head>
 
 <body>
+<?php require '../includes/header.php';?>
 
 
-  <div class="container">
-    <div class="nav">
+  <div class="main">
+   
       <ul class="link-home-page">
         <li><a href="">TRANG CHỦ</a></li>
 
@@ -52,7 +56,7 @@ if (!$_SESSION['is-login']) {
                       <li><a href="./sanPhamWeb.php">Web Development</a></li>
                       <li><a href="./sanPhamGame.php">Game Programing</a></li>
                       <li><a href="./sanPhamMobileApp.php">Mobile-app Development</a></li>
-                      <li><a href="./sanPhamDataSience.php">Data Science</a></li>
+                      <li><a class="a-active" href="./sanPhamDataSience.php">Data Science</a></li>
                       <li><a href="./sanPhamMachineLearningAndAI.php">Machine Learning</a></li>
                       <li><a href="./sanPhamSystemAdministration.php">System Administration</a></li>
                       <li><a href="./sanPhamDevops.php">DevOps</a></li>
@@ -142,16 +146,12 @@ if (!$_SESSION['is-login']) {
             <a href="">
               <div class="circle-page">10</div>
             </a>
-
-
           </div>
-
-
-
-
         </div>
       </div>
+  </div>
       <!-- footer -->
+      <?php require "../includes/footer.php" ?>
 
       <!-- end footer -->
       <script src="../loader/loader.js"></script>
