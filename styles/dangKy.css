@@ -1,17 +1,19 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.form-input{
-  width: 490px;
-  height: 45px;
-  font-size: 20px;
-  margin-top: 4px;
+.form-input {
+    width: 490px;
+    height: 45px;
+    font-size: 20px;
+    margin-top: 4px;
 }
 
 body {
-    background-image: url(../images/back-ground_login.jpg);
+    background-image: url(../images/bg3.png);
 }
 /* header */
 .nav {
@@ -20,218 +22,213 @@ body {
     top: 0;
     width: 100%;
     z-index: 999;
-  }
-  .nav .inner-wrap {
+}
+.nav .inner-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .nav .inner-wrap img {
+}
+.nav .inner-wrap img {
     width: 130px;
     height: 80px;
     object-fit: cover;
-  }
-  .nav .inner-search input {
+}
+.nav .inner-search input {
     padding: 10px;
     border-radius: 10px;
-  }
-  .nav .inner-menu ul {
+}
+.nav .inner-menu ul {
     display: flex;
-  }
-  .nav .inner-menu ul li {
+}
+.nav .inner-menu ul li {
     font-size: 17px;
     font-weight: 600;
-  }
-  .nav .inner-menu ul li a {
+}
+.nav .inner-menu ul li a {
     padding: 33px 7px;
     transition: all 0.6s;
-  }
-  .nav .inner-menu ul li a:hover {
+}
+.nav .inner-menu ul li a:hover {
     background-color: #fcbd34;
     color: #000;
-  }
-  .nav .inner-icon ul {
+}
+.nav .inner-icon ul {
     display: flex;
-  }
-  .nav .inner-icon ul li i {
+}
+.nav .inner-icon ul li i {
     font-size: 25px;
     color: #fff;
-  }
-  .nav .inner-icon ul li:nth-child(2) {
+}
+.nav .inner-icon ul li:nth-child(2) {
     margin-left: 15px;
-  }
-  .sale {
+}
+.sale {
     background-color: #fcbd34;
     padding: 20px 0;
     text-align: center;
-  }
-  
+}
+
 /* end header */
-.container1{
-    width: 100%;  
+.container1 {
+    width: 100%;
     display: flex;
     font-size: 30px;
     height: auto;
     justify-content: center;
     align-items: center;
 }
-.container1 .all{
-  
+.container1 .all {
     padding: 30px;
     font-family: "Roboto", sans-serif;
     width: auto;
     height: auto;
-    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    background: transparent;
+    color: #FEFDED;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-     box-shadow: 2px 2px 3px 6px rgb(216, 223, 156);
-     font-size: 16px;
-     margin: 30px ;
-    
-   
+    backdrop-filter: blur(30px);
+    font-size: 16px;
+    margin: 30px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.38);
 }
 /* code for elements */
-article{
+article {
     font-size: 70%;
 }
 /* code style for login */
 
-
- 
-.container1 .login h1{
-  text-align: center;
-  font-size: 200%;
-  padding-bottom: 0.5em;
-  border-bottom: 2px solid black;
+.container1 .login h1 {
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-.container1 .login p{
-  margin: 0.3em 0em;
+.container1 .login p {
+    margin: 0.3em 0em;
 }
-.container1  .button_login{
+.container1 .button_login {
     display: block;
-    background-color: transparent;
-    opacity: 0.7;
-    width: 265px;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.35);
+    width: 100%;
+    height: 45px;
+    border-radius: 12px;
     text-align: center;
     padding: 10px 0;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
-    margin:10px 0;
-    border: none;   
+    margin: 10px 0;
+    border: none;
     transition: all 0.5s ease-in-out;
-    border: 2px solid black;
-    color: black;
-    margin: 0 20%;
+    color: #803D3B;
+    box-shadow: 0 0 0 2px #803D3B;
 }
-.container1  .button_login:hover {
-    background-color: #FFEFEF;
-    color: #0C359E;
+.container1 .button_login:hover {
+    background-color: #803D3B;
+    color: #fcbd34;
     font-weight: bold;
-    border: 2px solid white ;
 }
 
-input{
-    border-radius: 9px;
-    border: 3px solid black;
+.form-input {
+    border-radius: 12px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
     transition: all 0.5s ease-in-out;
+    color: #FEFDED;
     margin-bottom: 10px;
-    font-size: 10px;
-  
+    background: transparent;
+    transition: all 0.3s ease-out;
+    padding-left: 20px;
+    font-size: 16px;
+}
+.text_login {
+    color: #FEFDED;
+}
 
-}
-.text_login{
-   color: white; 
-}
-  
-input:focus
-{
-    box-shadow: 2px 2px 6px 3px aqua;
+.form-input:focus {
+    box-shadow: 0 0 0 2px #fcbd34;
 }
 /* code style for sign_in */
-.container1 .sign_in{
+.container1 .sign_in {
     padding-left: 30px;
-    width: 570px;  
+    width: 570px;
 }
 
 /* proccess error login */
-.error{
-  font-size: 18px;
-  color: red;
-  margin-top: 0;
+.error {
+    font-size: 18px;
+    color: red;
+    margin-top: 0;
 }
 
-
 /* footer */
-.footter{
+.footter {
     background-color: #464660;
     color: white;
     padding: 30px 0;
-  }
-  
-  .footter img{
+}
+
+.footter img {
     width: 130px;
     height: 80px;
-    object-fit: cover
-  }
-  .footter .inner-wrap{
+    object-fit: cover;
+}
+.footter .inner-wrap {
     display: flex;
     justify-content: space-around;
-  }
-  .footter .inner-content{
+}
+.footter .inner-content {
     width: 24%;
     padding: 0 10px;
-  }
-  .footter .content-first{
+}
+.footter .content-first {
     width: 20%;
     padding: 0 10px;
     margin-top: -18px;
-  }
-  
-  .footter .content-first p{
+}
+
+.footter .content-first p {
     margin-left: 25px;
-  }
-  
-  .footter .inner-content h3{
+}
+
+.footter .inner-content h3 {
     margin-bottom: 10px;
-  }
-  
-  .footter .inner-content p{
+}
+
+.footter .inner-content p {
     margin-bottom: 10px;
-    
-  }
-  .footter .inner-content a{
+}
+.footter .inner-content a {
     margin-bottom: 10px;
     display: block;
-  }
-  
-  .footter .inner-icon{
+}
+
+.footter .inner-icon {
     padding: 20px 0;
     text-align: center;
-  }
-  
-  .footter .inner-icon a i{
+}
+
+.footter .inner-icon a i {
     font-size: 25px;
     padding: 10px;
     margin-right: 10px;
     transition: all 0.7s;
     border: 1px solid #8e75b9;
     border-radius: 50%;
-  }
-  
-  .footter .inner-icon i:hover {
+}
+
+.footter .inner-icon i:hover {
     color: yellow;
-  }
-  
-  .footter .end-footter  {
-    
+}
+
+.footter .end-footter {
     border-top: 1px white solid;
     border-bottom: 1px white solid;
-  }
-  
-  .footter .end-footter p {
+}
+
+.footter .end-footter p {
     padding: 20px;
-    font-weight: 700 ;
+    font-weight: 700;
     margin-left: 22px;
-  }
-  
+}
+
 /* end footer */

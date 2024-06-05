@@ -64,13 +64,13 @@ if (!$conn) {
             <ul>
               <li class="chude-list">Chủ đề
                 <ul>
-                  <li><a href="./sanPhamWeb.html">Web Development</a></li>
-                  <li><a href="./sanPhamGame.html">Game Programing</a></li>
-                  <li><a href="./sanPhamMobileApp.html">Mobile-app Development</a></li>
-                  <li><a href="./sanPhamDataSience.html">Data Science</a></li>
-                  <li><a href="./sanPhamMachineLearningAndAI.html">Machine Learning</a></li>
-                  <li><a href="./sanPhamSystemAdministration.html">System Administration</a></li>
-                  <li><a href="./sanPhamDevops.html">DevOps</a></li>
+                  <li><a href="../page_sanPham/sanPhamWeb.php">Web Development</a></li>
+                  <li><a href="../page_sanPham/sanPhamGame.php">Game Programing</a></li>
+                  <li><a href="../page_sanPham/sanPhamMobileApp.php">Mobile-app Development</a></li>
+                  <li><a href="../page_sanPham/sanPhamDataSience.php">Data Science</a></li>
+                  <li><a href="../page_sanPham/sanPhamMachineLearningAndAI.php">Machine Learning</a></li>
+                  <li><a href="../page_sanPham/sanPhamSystemAdministration.php">System Administration</a></li>
+                  <li><a href="../page_sanPham/sanPhamDevops.php">DevOps</a></li>
                 </ul>
               </li>
               <li class="type-book">Thể loại</li>
@@ -116,7 +116,7 @@ if (!$conn) {
 
             <div class="image-next">
               <img class="first-img" src="<?= $row['link']; ?>" alt="firstImgBook">
-              <img src="../BOOK_FOR_PROJECT/DATA_SIENCE/An Introduction to Statistical Learning/An Introduction to Statistical Learning.jpg" alt="secondImgBook">
+              <img src="../images/book_final.jpg" alt="secondImgBook">
             </div>
 
 

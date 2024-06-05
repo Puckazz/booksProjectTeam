@@ -63,7 +63,7 @@ if (!$conn) {
         <div class="cart_header">
             <h1>Giỏ Hàng</h1>
             <div class="cart_back">
-                <a href="../index.html">Trang chủ</a>
+                <a href="../index.php">Trang chủ</a>
                 <i class="bx bx-chevron-right"></i>
                 <span>Giỏ hàng của bạn</span>
             </div>
@@ -164,7 +164,7 @@ if (!$conn) {
 
         <div class="cart_checkout">
             <div class="btn_back">
-                <button>
+                <button onclick="window.location.href = '../page_sanPham/sanPhamWeb.php'">
                     <i class="bx bx-arrow-back"></i>
                     TIẾP TỤC XEM SẢN PHẨM
                 </button>

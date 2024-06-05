@@ -144,7 +144,7 @@ body{
 .container-sanpham .inner-left .sanpham-moi{
     display: flex;
     flex-direction: column;
-    margin: 40px 0;
+    margin: 41px 37px;
 }
 .container-sanpham .inner-left .sanpham-moi .product-new{
     display: flex;
@@ -168,7 +168,7 @@ body{
      padding-bottom: 3px;
 }
 .container-sanpham .inner-left .sanpham-moi .product-new .description .price{
-    padding-top: 87px;
+   
     color: red;
 }
 .container-sanpham .inner-left .sanpham-moi .product-new .description .price .gach{
