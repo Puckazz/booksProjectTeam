@@ -62,6 +62,9 @@ const inputShippingOne = document.getElementById("shipping-1");
 const inputShippingTwo = document.getElementById("shipping-2");
 
 inputShippingOne.addEventListener("click", () => {
+    deduction(20000);
+});
+inputShippingTwo.addEventListener("click", () => {
     const totalAll = document.querySelector(".total_all");
     var totalAllInt = parseInt(totalAll.textContent.replace(/,/g, ""));
 
@@ -69,9 +72,6 @@ inputShippingOne.addEventListener("click", () => {
     totalInput.value = totalAllInt;
     totalAll.textContent = totalAllInt;
     formatPrice(".total_all", document);
-});
-inputShippingTwo.addEventListener("click", () => {
-    deduction(20000);
 });
 
 // popup message

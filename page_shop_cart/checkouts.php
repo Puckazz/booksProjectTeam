@@ -38,6 +38,7 @@ if (isset($_POST['order'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/checkout_styles.css" />
+    <link rel="shortcut icon" href="../images/logoWP.png">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <title>Thanh Toán Đơn Hàng</title>
 

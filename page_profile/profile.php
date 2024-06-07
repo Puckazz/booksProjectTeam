@@ -1,13 +1,20 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="style_profile.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Thông tin của bạn</title>
   </head>
   <body>
+    <?php require '../includes/header.php' ?>
+
     <div class="form">
       <div class="inner-left">
         <form action="" class="form_profile" method="post">
@@ -25,18 +32,7 @@
           <button class="submit">Lưu thay đổi</button>
         </form>
       </div>
-      <div class="inner-right">
-        <form action="" method="post">
-          <h2>Đổi mật khẩu</h2>
-          <label for="">Mật khẩu hiện tại</label><br />
-          <input type="password" /><br />
-          <label for="">Mật khẩu mới</label><br />
-          <input type="password" /><br />
-          <label for="">Mật khẩu mới</label><br />
-          <input type="password" /><br />
-          <button class="submit">Đổi mật khẩu</button>
-        </form>
-      </div>
     </div>
+    <?php require "../includes/footer.php" ?>
   </body>
 </html>

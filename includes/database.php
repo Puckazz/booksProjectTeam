@@ -29,6 +29,7 @@ try {
     salePrice,
     year_publish,
     link ,
+    quantity_sold,
     status
 FROM 
     bookdatabase.book 
@@ -107,4 +108,4 @@ WHERE
 // Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
 $conn->close();
 }
-?>
+

@@ -53,6 +53,7 @@ if (isset($_POST['bt_login'])) {
           $user = mysqli_fetch_assoc($result);
           $_SESSION['is-login'] = true;
           $_SESSION['id_customer'] = $user['ID_customer_new'];
+          $_SESSION['username'] = $username;
           $redict_to = $_POST['direct_to'];
           header("Location:{$redict_to}");
         } else {
