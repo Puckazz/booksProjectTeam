@@ -1,10 +1,11 @@
 <?php
+
 $conn = mysqli_connect("localhost", "root", "", "bookdatabase");
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-session_start();
+
 ?>
 
 
@@ -24,11 +25,11 @@ session_start();
 
 <body>
   <!-- header -->
-  <?php require '../includes/header.php' ?>
+  <?php session_start(); require '../includes/header.php' ?>
   <h2 class="sale">Giảm giá 20% cho tất cả sách hôm nay</h2>
 
   <!-- end header -->
-  <div class="container">
+  <div class="container content">
     <div class="inner-left">
       <div class="nav-book">
         <ul>
