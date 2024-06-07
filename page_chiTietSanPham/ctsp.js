@@ -37,3 +37,15 @@ function formatPrice(str) {
 
 formatPrice(".first-price");
 formatPrice(".final-price");
+
+// hide discount if it not discount
+const sale = document.querySelector(".discount");
+const buyPrice = document.querySelector(".first-price");
+const salePrice = document.querySelector(".final-price");
+const saleInt = parseInt(sale.textContent.replace(/-|%/g, ""));
+if (saleInt < 1) {
+    sale.style.display = "none";
+    buyPrice.style.display = "none";
+    salePrice.style.margin = "0";
+    salePrice.style.color = "black";
+}

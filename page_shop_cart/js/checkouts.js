@@ -20,13 +20,21 @@ itemProduct.forEach((item) => {
 formatPrice(".total", document);
 formatPrice(".total_all", document);
 
+const totalInput = document.getElementById("totalInput");
+function deduction(price) {
+    const totalAll = document.querySelector(".total_all");
+    var totalAllInt = parseInt(totalAll.textContent.replace(/,/g, ""));
+
+    totalAllInt = totalAllInt - price;
+    totalInput.value = totalAllInt;
+    totalAll.textContent = totalAllInt;
+    formatPrice(".total_all", document);
+}
+
 // apply vocher code
 const inputVocher = document.getElementById("voucher");
 const btnVoucher = document.getElementById("use_voucher");
 const dcPrice = document.getElementById("item_voucher");
-
-const totalAll = document.querySelector(".total_all");
-var totalAllInt = parseInt(totalAll.textContent.replace(/,/g, ""));
 
 btnVoucher.addEventListener("click", function () {
     const totalAll = document.querySelector(".total_all");
@@ -49,35 +57,34 @@ btnVoucher.addEventListener("click", function () {
     }
 });
 
-function deduction(price) {
-    const totalAll = document.querySelector(".total_all");
-    var totalAllInt = parseInt(totalAll.textContent.replace(/,/g, ""));
-
-    totalAllInt = totalAllInt - price;
-    totalAll.textContent = totalAllInt;
-    formatPrice(".total_all", document);
-}
-
 // select shipping
 const inputShippingOne = document.getElementById("shipping-1");
 const inputShippingTwo = document.getElementById("shipping-2");
 
 inputShippingOne.addEventListener("click", () => {
+    deduction(20000);
+});
+inputShippingTwo.addEventListener("click", () => {
     const totalAll = document.querySelector(".total_all");
     var totalAllInt = parseInt(totalAll.textContent.replace(/,/g, ""));
 
     totalAllInt = totalAllInt + 20000;
+    totalInput.value = totalAllInt;
     totalAll.textContent = totalAllInt;
     formatPrice(".total_all", document);
 });
-inputShippingTwo.addEventListener("click", () => {
-    deduction(20000);
-});
 
-// Checkout complete
-const showPopup = document.querySelector(".show_popup");
-const popupContainer = document.querySelector(".popup_container");
+// popup message
+const popupCon = document.getElementById("popup_con");
+const popupBox = document.getElementById("popup_box");
 
-showPopup.addEventListener("click", () => {
-    popupContainer.classList.add("active");
-});
+popupCon.style.opacity = "1";
+popupBox.style.transform = "scale(1)";
+
+// copy note
+function copyNote() {
+    var formnote = document.getElementById("form_note");
+    var content = document.getElementById("content");
+
+    content.value = formnote.value;
+}

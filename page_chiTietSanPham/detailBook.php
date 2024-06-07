@@ -4,6 +4,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
+session_start();
 ?>
 
 
@@ -62,23 +63,22 @@ if (!$conn) {
       $year_publish = $_POST['year_publish'];
       $price_book = $_POST['price_book'];
       $quantity = $_POST['quantity'];
+      $id_customer = $_SESSION['id_customer'];
 
       $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_book = '$id_book'");
 
       if (mysqli_num_rows($select_cart) > 0) {
         $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + $quantity WHERE id_book = '$id_book'");
       } else {
-        $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity)");
+        $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
       }
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET" || isset($_POST['addToCart'])) {
-      if (isset($_GET['showbook']) || isset($_POST['id_book'])) {
-        $id_book = isset($_GET['showbook']) ? $_GET['showbook'] : $_POST['id_book'];
-
+    if ($_SERVER["REQUEST_METHOD"] == "GET" || isset($_GET['showbook'])) {
+        $show_book = $_GET['showbook'];
         $select_book = mysqli_query($conn, "SELECT book.ID_Book, book.name_book, book.discount, book.name_category_book, book.buyPrice, book.salePrice, book.year_publish, book.link, book.description_book, book.ID_tacgia, authors.author_name 
                     FROM book INNER JOIN authors 
-                    ON book.ID_tacgia = authors.ID_tacgia WHERE ID_Book = '$id_book'");
+                    ON book.ID_tacgia = authors.ID_tacgia WHERE ID_Book = '$show_book'");
 
         while ($row = mysqli_fetch_assoc($select_book)) { ?>
 
@@ -154,7 +154,6 @@ if (!$conn) {
   </div>
 <?php }
       }
-    }
     mysqli_close($conn);
 ?>
 
