@@ -5,6 +5,7 @@ $dbpassword = "";
 $dbname = "bookdatabase";
 
 require "../includes/validation.php";
+require "../includes/send_email.php";
 // Tạo kết nối
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
@@ -27,7 +28,14 @@ if ($conn->connect_error) {
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // Đăng nhập thành công
-           
+            $subject = "KHÔI PHỤC GMAIL";
+            $content = "Hãy click vào link này để thay đổi mật khẩu";
+           if(send_email($email,"",$subject,$content)){
+            echo "gửi thành công";
+           }
+           else{
+            echo "lỗi";
+           }
            
             
           } else {

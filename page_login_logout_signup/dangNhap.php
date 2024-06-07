@@ -114,7 +114,7 @@ $conn->close();
 
           <div class="flex-item">
             <p class="text_login"> <input type="checkbox" class="tickghinho"> Ghi nhớ mật khẩu</p>
-            <a href="" class="quenmatkhau">Quên mật khẩu?</a>
+            <a href="./forgot_password.php" class="quenmatkhau">Quên mật khẩu?</a>
           </div>
           <input type="submit" class="button_login" value="ĐĂNG NHẬP" name="bt_login">
           <a href="./dangKy.php" class="without-account">Bạn chưa có tài khoản? <span>Đăng ký</span></a>
