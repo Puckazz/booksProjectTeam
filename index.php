@@ -4,9 +4,6 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_POST['order'])) {
-  mysqli_query($conn, "DELETE FROM cart") or die("Query failed");
-}
 ?>
 
 <!-- code session  -->
@@ -113,13 +110,14 @@ if (isset($_POST['order'])) {
           $year_publish = $_POST['year_publish'];
           $price_book = $_POST['price_book'];
           $quantity = 1;
+          $id_customer = $_SESSION['id_customer'];
 
           $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_book = '$id_book'");
 
           if (mysqli_num_rows($select_cart) > 0) {
             $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_book'");
           } else {
-            $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity)");
+            $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
           }
         }
 

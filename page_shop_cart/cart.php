@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $conn = mysqli_connect("localhost", "root", "", "bookdatabase");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -56,13 +58,14 @@ if (!$conn) {
                 $year_publish = $_POST['year_publish'];
                 $price_book = $_POST['price_book'];
                 $quantity = 1;
+                $id_customer = $_SESSION['id_customer'];
 
                 $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_book = '$id_book'");
 
                 if (mysqli_num_rows($select_cart) > 0) {
                     $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_book'");
                 } else {
-                    $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity)");
+                    $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
                 }
             }
 
@@ -88,7 +91,8 @@ if (!$conn) {
                 }
             }
 
-            $select_all_cart = mysqli_query($conn, "SELECT * FROM cart");
+            $id_customer = $_SESSION['id_customer'];
+            $select_all_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer");
             while ($row = mysqli_fetch_assoc($select_all_cart)) { ?>
                 <form action="" method="post" style="width: 100%;">
                     <div class="info_container info_product">

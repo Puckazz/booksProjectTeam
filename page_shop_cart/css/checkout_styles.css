@@ -4,17 +4,12 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
     opacity: 0;
-    pointer-events: none;
-}
-.popup_container.active {
-    opacity: 1;
-    pointer-events: auto;
     transition: 0.5s ease;
 }
 .popup_container .popup_box {
@@ -25,11 +20,9 @@
     padding: 26px;
     text-align: center;
     transform: scale(0);
-}
-.popup_container.active .popup_box {
-    transform: scale(1);
     transition: 0.5s ease;
     transition-delay: 0.25s;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 .popup_box i {
     font-size: 45px;

@@ -50,8 +50,9 @@ if (isset($_POST['bt_login'])) {
 
         if ($result->num_rows > 0) {
           // Đăng nhập thành công
-         
+          $user = mysqli_fetch_assoc($result);
           $_SESSION['is-login'] = true;
+          $_SESSION['id_customer'] = $user['ID_customer_new'];
           $redict_to = $_POST['direct_to'];
           header("Location:{$redict_to}");
         } else {

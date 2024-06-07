@@ -3,11 +3,31 @@ $conn = mysqli_connect("localhost", "root", "", "bookdatabase");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+session_start();
+$id_customer = $_SESSION['id_customer'];
+
 $total_books = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
     $total_books = $_POST['total_book'];
 }
 
+$select_customer = mysqli_query($conn, "SELECT * FROM customers WHERE ID_customer_new = $id_customer");
+if (isset($_POST['order'])) {
+    $user = mysqli_fetch_assoc($select_customer);
+    $name_customer = $user['name_customer'];
+    $address = $user['address'];
+    $phone_number = $user['number_phone'];
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $date_order = date('Y-m-d H:i:s');
+    $total = $_POST['total'];
+    $note = $_POST['note'];
+
+    mysqli_query($conn, "INSERT INTO bill(name_customer, address, phone_number, date_of_bill, total, note) VALUES ('$name_customer', '$address', '$phone_number', '$date_order', $total, '$note')");
+    mysqli_query($conn, "DELETE FROM cart WHERE id_customer = $id_customer");
+
+    $message = 'Cảm ơn bạn đã mua hàng tại WAMPO. Đơn hàng sẽ sớm được giao đến tay bạn!';
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,28 +45,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
 </head>
 
 <body>
-    <div class="popup_container">
-        <div class="popup_box">
-            <i class='bx bxs-check-circle'></i>
+    <?php
+    if (isset($message)) {
+        echo '<div id="popup_con" class="popup_container">
+        <div id="popup_box" class="popup_box">
+            <i class="bx bxs-check-circle"></i>
             <h4>Đặt hàng thành công</h4>
-            <p>Cảm ơn bạn đã mua hàng tại WAMPO. Đơn hàng sẽ sớm được giao đến tay bạn!</p>
-            <form action="../index.php" method="post"><button type="submit" name="order" class="back_btn">Trở Về Trang Chủ</button></form>
+            <p>' . $message . '</p>
+            <button class="back_btn" onclick="window.location.href = \'../index.php\'">Trở Về Trang Chủ</button>
         </div>
-    </div>
+    </div>';
+    }
+    ?>
 
     <div class="checkout">
         <form action="" class="column_wrapper method_pay-form">
             <h3>THÔNG TIN THANH TOÁN</h3>
-            <label for="" class="form_label">Tên*</label>
-            <input type="text" class="form_input" />
-            <label for="" class="form_label">Số điện thoại*</label>
-            <input type="text" class="form_input" />
-            <label for="email" class="form_label">Địa chỉ email*</label>
-            <input type="email" id="email" class="form_input" />
-            <label for="" class="form_label">Quốc gia/Khu vực*</label>
-            <span>Việt Nam</span>
-            <label for="" class="form_label">Địa chỉ*</label>
-            <input type="text" class="form_input" />
+            <?php
+            $qr_customer = mysqli_query($conn, "SELECT * FROM customers WHERE ID_customer_new = $id_customer");
+            while ($row = mysqli_fetch_assoc($qr_customer)) { ?>
+                <label for="" class="form_label">Tên*</label>
+                <input type="text" class="form_input" value="<?= $row['name_customer']; ?>" />
+                <label for="" class="form_label">Số điện thoại*</label>
+                <input type="text" class="form_input" value="<?= $row['number_phone']; ?>" />
+                <label for="email" class="form_label">Địa chỉ email*</label>
+                <input type="email" id="email" class="form_input" value="<?= $row['email']; ?>" />
+                <label for="" class="form_label">Quốc gia/Khu vực*</label>
+                <span>Việt Nam</span>
+                <label for="" class="form_label">Địa chỉ*</label>
+                <input type="text" class="form_input" />
+            <?php
+            }
+            $note = "";
+            ?>
             <label for="" class="form_label">Tỉnh/Thành phố*</label>
             <div class="select_container">
                 <select name="" id="form_select">
@@ -92,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
                 </div>
             </div>
             <label for="" class="form_label">Ghi chú đơn hàng (tuỳ chọn)</label>
-            <textarea name="" id="form_note" cols="50" rows="5" placeholder="• Ghi chú về giao hàng: ví dụ như thời gian, chỉ dẫn địa điểm giao hàng chi tiết hơn."></textarea>
+            <textarea style="resize: none;" id="form_note" cols="50" rows="5" placeholder="• Ghi chú về giao hàng: ví dụ như thời gian, chỉ dẫn địa điểm giao hàng chi tiết hơn."></textarea>
             <a href="./cart.php">Quay lại giỏ hàng</a>
         </form>
 
@@ -103,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
                 <p>TẠM TÍNH</p>
             </div>
             <?php
-            $select_cart = mysqli_query($conn, "SELECT * FROM cart");
+            $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer");
             while ($row = mysqli_fetch_assoc($select_cart)) { ?>
                 <div class="row_item item_product">
                     <p><?= $row['name_book']; ?> x<?= $row['quantity']; ?></p>
@@ -131,7 +162,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
             <div class="row_item item_3">
                 <span>Tổng</span> <span class="total_all"><?= $total_books; ?>000</span>
             </div>
-            <?php mysqli_close($conn); ?>
             <p class="shipping pad">Phương thức thanh toán</p>
             <div class="method_pay">
                 <div class="row_item">
@@ -154,7 +184,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
                 </div>
             </div>
             <div class="row_item order_item">
-                <button type="submit" class="show_popup">Đặt hàng</button>
+                <form action="" method="post">
+                    <button type="submit" class="show_popup" name="order" onclick="copyNote()">Đặt hàng</button>
+                    <input id="totalInput" type="hidden" name="total" value="<?php echo $total_books; ?>">
+                    <textarea name="note" id="content" style="display: none;"></textarea>
+                </form>
                 <p>
                     Tất cả thông tin của bạn chỉ được sử dụng cho việc đặt
                     hàng và cải thiện trải nghiệm sản phẩm. Ngoài ra được
@@ -169,6 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
         </div>
     </div>
 
+    <?php mysqli_close($conn); ?>
     <script src="js/checkouts.js"></script>
     <script src="../loader/loader.js"></script>
 </body>
