@@ -6,6 +6,7 @@ $dbname = "bookdatabase";
 
 require "../includes/validation.php";
 require "../includes/send_email.php";
+require "../includes/database.php";
 // Tạo kết nối
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
@@ -28,10 +29,20 @@ if ($conn->connect_error) {
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // Đăng nhập thành công
+            $reset_token = md5($email.time());
+            $link = "http://localhost:3000/booksProjectTeam/page_login_logout_signup/reset_password.php?reset_token=".$reset_token;
+
             $subject = "KHÔI PHỤC GMAIL";
-            $content = "Hãy click vào link này để thay đổi mật khẩu";
+            $content = "<p>Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn liên kết với địa chỉ email này. Nếu bạn đã yêu cầu, vui lòng nhấp vào liên kết dưới đây để đặt lại mật khẩu của bạn: <strong><a href=\"$link\">click here:</a></strong></p>
+                        <p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này hoặc liên hệ với đội ngũ hỗ trợ của chúng tôi nếu bạn có bất kỳ câu hỏi nào.</p>
+                        <p>Trân trọng,<br>WAMPO</p>";
+            
            if(send_email($email,"",$subject,$content)){
-            echo "gửi thành công";
+            ;
+            if(update_reset_token($email,'customers',$reset_token)){
+                echo "update thành công";
+            }
+
            }
            else{
             echo "lỗi";

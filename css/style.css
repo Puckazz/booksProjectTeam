@@ -37,11 +37,12 @@
 }
 .nav .inner-icon ul {
   display: flex;
+  align-items: center;
 }
 .nav .inner-icon ul li i {
   font-size: 25px;
   color: #fff;
-  margin-right: 16px;
+  margin-left: 16px;
 }
 
 .sale {
