@@ -1,41 +1,28 @@
-body{
-    background: url(../image/Default_background_for_book_shop_have_purple_dark_1.jpg);
+
+.form_profile{
+    background-color: aliceblue;
+    padding: 30px 0;
+}
+.form_profile h2{
+    margin-bottom: 20px;
 }
 
-.form{
-    backdrop-filter: blur(8px);
-    display: flex;
+.form_profile input{
+    width: 430px;
+    height: 35px;
+    padding: 0 10px;
+    margin-left: 50px;
     
 }
-.form .inner-left{
-    width: 50%;
-   border: #887997 solid 1px;
-   padding: 20px;
-   
+.form_profile table td{
+    padding: 10px 0;
 }
-.form label{
-    display: inline-block;
-    margin-bottom: 10px;
-    opacity: 0.7;
+.form_profile .submit{
+    background-color: #c74b50;
+    text-transform: uppercase;
     font-weight: 700;
-}
-.form input{
-    background-color: #D8D8D8;
-    width: 300px;
-    margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px 30px;
     border-radius: 10px;
-}
-.form button{
-    background-color: #464660;
-    width: 150px;
-    padding: 5px;
-    border-radius: 10px;
+    border: none;
     color: white;
-    font-size: 18px;
-}
-.form .inner-right{
-    flex: 1;
-    border: #887997 solid 1px;
-    padding: 20px;
 }

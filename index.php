@@ -14,6 +14,7 @@ if (isset($_POST['order'])) {
   session_start();
   if(!$_SESSION['is-login']){
     header("Location: ./page_login_logout_signup/dangNhap.php");
+    print_r($_SESSION);
   }
 ?>
 

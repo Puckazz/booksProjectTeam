@@ -15,8 +15,8 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giỏ Hàng Của Bạn</title>
-    <link rel="stylesheet" href="./css/cart_styles.css" />
     <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/cart_styles.css" />
     <link rel="stylesheet" href="../styles/base.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="../images/logoWP.png">
