@@ -74,7 +74,7 @@ if (isset($_POST['order'])) {
                 <label for="" class="form_label">Quốc gia/Khu vực*</label>
                 <span>Việt Nam</span>
                 <label for="" class="form_label">Địa chỉ*</label>
-                <input type="text" class="form_input" />
+                <input type="text" class="form_input" value="<?= $row['address']; ?>"/>
             <?php
             }
             $note = "";

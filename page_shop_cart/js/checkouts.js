@@ -26,7 +26,7 @@ function deduction(price) {
     var totalAllInt = parseInt(totalAll.textContent.replace(/,/g, ""));
 
     totalAllInt = totalAllInt - price;
-    totalInput.value = totalAllInt;
+    totalInput.value = totalAllInt / 1000;
     totalAll.textContent = totalAllInt;
     formatPrice(".total_all", document);
 }

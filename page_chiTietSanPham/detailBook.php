@@ -5,7 +5,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-// session_start();
+session_start();
 
 if (isset($_POST['addToCart'])) {
   $img_book = $_POST['img_book'];
@@ -49,7 +49,7 @@ if (isset($_POST['addToCart'])) {
 
 <body>
   <!-- header -->
-  <?php session_start(); require '../includes/header.php' ?>
+  <?php require '../includes/header.php' ?>
   <h2 class="sale">Giảm giá 20% cho tất cả sách hôm nay</h2>
 
   <!-- end header -->
