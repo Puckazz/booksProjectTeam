@@ -25,7 +25,7 @@ $id = $_SESSION['id_customer'];
           <div class="inner-icon">
             <ul>
               <li>
-                <a href="/booksProjectTeam/page_profile/profile.php"><?php echo $_SESSION['username']; ?> <i class="fa-regular fa-user"></i></a>
+                <a href="/booksProjectTeam/page_profile/profile.php"><?php echo $_SESSION['username']; ?></a>
               </li>
               <li>
                 <a id="num_cart" href="/booksProjectTeam/page_shop_cart/cart.php">

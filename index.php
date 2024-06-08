@@ -11,6 +11,7 @@ if (!$conn) {
 session_start();
 if (!$_SESSION['is-login']) {
   header("Location: ./page_login_logout_signup/dangNhap.php");
+  print_r($_SESSION);
 }
 
 if (isset($_POST['addToCart'])) {

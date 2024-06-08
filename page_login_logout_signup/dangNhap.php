@@ -50,10 +50,12 @@ if (isset($_POST['bt_login'])) {
 
         if ($result->num_rows > 0) {
           // Đăng nhập thành công
-          $user = mysqli_fetch_assoc($result);
+          $row = mysqli_fetch_assoc($result);
           $_SESSION['is-login'] = true;
-          $_SESSION['id_customer'] = $user['ID_customer_new'];
+          $_SESSION['id'] = $row['ID_customer_new'];
+          $_SESSION['id_customer'] = $row['ID_customer_new'];
           $_SESSION['username'] = $username;
+         
           $redict_to = $_POST['direct_to'];
           header("Location:{$redict_to}");
         } else {
@@ -114,7 +116,7 @@ $conn->close();
 
           <div class="flex-item">
             <p class="text_login"> <input type="checkbox" class="tickghinho"> Ghi nhớ mật khẩu</p>
-            <a href="" class="quenmatkhau">Quên mật khẩu?</a>
+            <a href="./forgot_password.php" class="quenmatkhau">Quên mật khẩu?</a>
           </div>
           <input type="submit" class="button_login" value="ĐĂNG NHẬP" name="bt_login">
           <a href="./dangKy.php" class="without-account">Bạn chưa có tài khoản? <span>Đăng ký</span></a>

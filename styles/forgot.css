@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url(../images/bg3.png);
+    background-size: 100% 100vh;
+    font-family: 'roboto',sans-serif;
+}
+input{
+    outline: none;
+}
+.container{
+    display:flex ;
+    justify-content: center;
+    padding: 100px 10px;
+    align-items: center;
+}
+.container .all{
+    padding: 60px 10px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+}
+.container h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+.form-input{
+    width: 490px;
+    height: 45px;
+    font-size: 20px;
+    margin-top: 4px;
+}
+.container .form-input{
+    border-radius: 12px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease-in-out;
+    color: #FEFDED;
+    margin-bottom: 10px;
+    background: transparent;
+    transition: all 0.3s ease-out;
+    padding-left: 20px;
+    font-size: 16px;
+    border: none;
+}
+.container .form-input:focus{
+    box-shadow: 0 0 0 2px #fcbd34;
+   
+}
+.container label{
+    color: #FEFDED;
+    font-size: 27px;
+    padding-right: 15px;
+}
+.container p{
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+.container .submit{
+    text-align: center;
+    font-size: 30px;
+} 
+.submit-nhap{
+    font-size: 20px;
+    width: 200px;
+    height: 46px;
+    border-radius: 16px;
+  outline: none;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  color: white;
+}
+.submit-nhap:hover{
+    background-color: #803D3B;
+    color: #fcbd34;
+    font-weight: bold;
+}
+.container .error {
+    font-size: 18px;
+    color: red;
+    margin-top: 0;
+}

@@ -59,8 +59,8 @@ if (isset($_POST['minus'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giỏ Hàng Của Bạn</title>
-    <link rel="stylesheet" href="./css/cart_styles.css" />
     <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/cart_styles.css" />
     <link rel="stylesheet" href="../styles/base.css" />
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -108,7 +108,7 @@ if (isset($_POST['minus'])) {
 
             <?php
             $id_customer = $_SESSION['id_customer'];
-            $select_all_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer");
+            $select_all_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = '$id_customer'");
             while ($row = mysqli_fetch_assoc($select_all_cart)) { ?>
                 <form action="" method="post" style="width: 100%;">
                     <div class="info_container info_product">

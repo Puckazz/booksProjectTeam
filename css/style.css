@@ -74,11 +74,12 @@
 }
 .nav .inner-icon ul {
   display: flex;
+  align-items: center;
 }
 .nav .inner-icon ul li i {
   font-size: 25px;
   color: #fff;
-  margin-right: 16px;
+  margin-left: 16px;
 }
 .nav .inner-icon ul li #num_cart {
   position: relative;
@@ -94,7 +95,7 @@
   font-size: 10px;
   line-height: 20px;
   font-weight: 500;
-  right: 6px;
+  right: -10px;
   top: -14px;
 }
 

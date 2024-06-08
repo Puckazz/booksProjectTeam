@@ -36,44 +36,46 @@
 
 /* the code for header */
 .nav {
-    background-color: #464660;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 999;
+  background-color: #464660;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 .nav .inner-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 .nav .inner-wrap img {
-    width: 130px;
-    height: 80px;
-    object-fit: cover;
+  width: 130px;
+  height: 80px;
+  object-fit: cover;
 }
 .nav .inner-search input {
-    padding: 10px;
-    border-radius: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 .nav .inner-menu ul {
-    display: flex;
+  display: flex;
+  
 }
 .nav .inner-menu ul li {
-    font-size: 17px;
-    font-weight: 600;
+  font-size: 17px;
+  font-weight: 600;
 }
 .nav .inner-menu ul li a {
-    padding: 33px 7px;
-    transition: all 0.6s;
+  padding: 33px 7px;
+  transition: all 0.6s;
 }
 .nav .inner-menu ul li a:hover {
-    background-color: #fcbd34;
-    color: #000;
+  background-color: #fcbd34;
+  color: #000;
 }
 .nav .inner-icon ul {
-    display: flex;
+  display: flex;
+  align-items: center;
 }
 .nav .inner-icon ul li i {
     font-size: 25px;
