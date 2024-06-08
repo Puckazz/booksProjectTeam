@@ -93,7 +93,7 @@ if (!$conn) {
             }
 
             $id_customer = $_SESSION['id_customer'];
-            $select_all_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer");
+            $select_all_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = '$id_customer'");
             while ($row = mysqli_fetch_assoc($select_all_cart)) { ?>
                 <form action="" method="post" style="width: 100%;">
                     <div class="info_container info_product">
