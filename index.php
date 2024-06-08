@@ -7,11 +7,32 @@ if (!$conn) {
 ?>
 
 <!-- code session  -->
-<?php 
-  session_start();
-  if(!$_SESSION['is-login']){
-    header("Location: ./page_login_logout_signup/dangNhap.php");
+<?php
+session_start();
+if (!$_SESSION['is-login']) {
+  header("Location: ./page_login_logout_signup/dangNhap.php");
+}
+
+if (isset($_POST['addToCart'])) {
+  $img_book = $_POST['img_book'];
+  $name_book = $_POST['name_book'];
+  $author_book = $_POST['author_book'];
+  $id_book = $_POST['id_book'];
+  $year_publish = $_POST['year_publish'];
+  $price_book = $_POST['price_book'];
+  $quantity = 1;
+  $id_customer = $_SESSION['id_customer'];
+
+  $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer AND id_book = '$id_book'");
+
+  if (mysqli_num_rows($select_cart) > 0) {
+    $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_book'");
+  } else {
+    $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
   }
+
+  $message = "";
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +55,21 @@ if (!$conn) {
 
 <body>
   <!-- Header -->
-  <?php require 'includes/header.php';?>
+  <?php require 'includes/header.php'; ?>
   <h2 class="sale">Giảm giá 20% cho tất cả sách hôm nay</h2>
   <!-- End Header -->
+
+  <?php
+  if (isset($message)) {
+    echo '<div class="message_box" id="message_box">
+        <i class="bx bxs-check-circle"></i>
+        <div class="column_item">
+            <p id="header_title">Thêm vào giỏ hàng thành công</p>
+            <p id="content">Vui lòng bấm vào giỏ hàng để xem chi tiết</p>
+        </div>
+    </div>';
+  }
+  ?>
   <!-- Section-one -->
   <div class="section-one">
     <div class="container">
@@ -97,30 +130,10 @@ if (!$conn) {
     <div class="container">
       <div class="inner-head">
         <div class="inline"></div>
-        <div class="inner-title">New books</div>
+        <div class="inner-title">Sách mới</div>
       </div>
       <div class="inner-wrap">
         <?php
-
-        if (isset($_POST['addToCart'])) {
-          $img_book = $_POST['img_book'];
-          $name_book = $_POST['name_book'];
-          $author_book = $_POST['author_book'];
-          $id_book = $_POST['id_book'];
-          $year_publish = $_POST['year_publish'];
-          $price_book = $_POST['price_book'];
-          $quantity = 1;
-          $id_customer = $_SESSION['id_customer'];
-
-          $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_book = '$id_book'");
-
-          if (mysqli_num_rows($select_cart) > 0) {
-            $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_book'");
-          } else {
-            $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
-          }
-        }
-
         $showMore = 6;
         if (isset($_GET['showMore'])) {
           $showMore = $showMore + 9;
@@ -130,14 +143,17 @@ if (!$conn) {
           <div class="inner-box" id="show-more">
             <div class="inner-image">
               <a href="./page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['ID_Book']; ?>"><img src="<?= $row['link']; ?>" alt="" /></a>
+              <span class="discount_book">-<?= $row['discount'] * 100; ?>%</span>
             </div>
 
             <div class="inner-content">
               <div class="inner-desc">
                 <a style="color: black;" href="../page_chiTietSanPham/detailBook.php?showbook=<?php echo $row['ID_Book']; ?>"><?= $row['name_book']; ?></a>
               </div>
-              <span class="price"><?= $row['salePrice']; ?>,000 <u>đ</u></span>
-              <del class="discount"><?= $row['buyPrice']; ?>,000 <u>đ</u></del>
+              <div id="price_wrapper">
+                <span class="price"><?= $row['salePrice']; ?>,000 <u>đ</u></span>
+                <del class="discount"><?= $row['buyPrice']; ?>,000 <u>đ</u></del>
+              </div>
               <form action="" method="post">
                 <button class="button" type="submit" name="addToCart">Thêm vào giỏ</button>
 
@@ -177,8 +193,7 @@ if (!$conn) {
               <div class="nameBook">
                 Machine learning for Hight-Risk Applications
               </div>
-              <del class="common price">$20.00</del>
-              <span class="common discount">$16.80</span>
+              <span class="common discount">761,000 <u>đ</u></span>
             </div>
           </div>
           <div class="inner-box">
@@ -188,10 +203,10 @@ if (!$conn) {
             <div class="inner-content">
               <div class="bookCategory">Machine learning & AI</div>
               <div class="nameBook">
-                Machine learning for Hight-Risk Applications
+                Pair Programming With ChatGPT
               </div>
-              <del class="common price">$20.00</del>
-              <span class="common discount">$16.80</span>
+              <del class="common price">555,000 <u>đ</u></del>
+              <span class="common discount">277,000 <u>đ</u></span>
             </div>
           </div>
           <div class="inner-box">
@@ -201,10 +216,10 @@ if (!$conn) {
             <div class="inner-content">
               <div class="bookCategory">Machine learning & AI</div>
               <div class="nameBook">
-                Machine learning for Hight-Risk Applications
+                The Age Of AI
               </div>
-              <del class="common price">$20.00</del>
-              <span class="common discount">$16.80</span>
+              <del class="common price">212,000 <u>đ</u></del>
+              <span class="common discount">200,000 <u>đ</u></span>
             </div>
           </div>
         </div>
@@ -271,7 +286,7 @@ if (!$conn) {
   </div>
   <!--end form -->
   <!-- footter -->
-    <?php require "includes/footer.php" ?>
+  <?php require "includes/footer.php" ?>
   <!--end footter -->
 
   <script src="./loader/loader.js"></script>

@@ -5,6 +5,51 @@ $conn = mysqli_connect("localhost", "root", "", "bookdatabase");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+$id_customer = $_SESSION['id_customer'];
+// Add book to cart
+$total_all = 0;
+if (isset($_POST['addToCart'])) {
+    $img_book = $_POST['img_book'];
+    $name_book = $_POST['name_book'];
+    $author_book = $_POST['author_book'];
+    $id_book = $_POST['id_book'];
+    $year_publish = $_POST['year_publish'];
+    $price_book = $_POST['price_book'];
+    $quantity = 1;
+
+    $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer AND id_book = '$id_book'");
+
+    if (mysqli_num_rows($select_cart) > 0) {
+        $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_book'");
+    } else {
+        $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
+    }
+
+    $message = "";
+}
+
+if (isset($_GET['remove'])) {
+    $remove_id = $_GET['remove'];
+    mysqli_query($conn, "DELETE FROM cart WHERE id_customer = $id_customer AND id_book = '$remove_id' ") or die("Query failed");
+}
+
+if (isset($_POST['plus'])) {
+    $id_update = $_POST['id_update'];
+    mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_customer = $id_customer AND id_book = '$id_update'");
+}
+
+if (isset($_POST['minus'])) {
+    $id_update = $_POST['id_update'];
+    $qt = mysqli_query($conn, "SELECT quantity FROM cart WHERE id_customer = $id_customer AND id_book = '$id_update'");
+    $row = mysqli_fetch_assoc($qt);
+    $current_quantity = $row['quantity'];
+    if ($current_quantity > 1) {
+        mysqli_query($conn, "UPDATE cart SET quantity = quantity - 1 WHERE id_customer = $id_customer AND id_book = '$id_update'");
+    } else {
+        mysqli_query($conn, "DELETE FROM cart WHERE id_customer = $id_customer AND id_book = '$id_update'");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +62,7 @@ if (!$conn) {
     <link rel="stylesheet" href="./css/cart_styles.css" />
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="../images/logoWP.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,6 +76,18 @@ if (!$conn) {
     <h2 class="sale">Giảm giá 20% cho tất cả sách hôm nay</h2>
 
     <!-- end header -->
+    <?php
+    if (isset($message)) {
+        echo '<div class="message_box" id="message_box">
+        <i class="bx bxs-check-circle"></i>
+        <div class="column_item">
+            <p id="header_title">Thêm vào giỏ hàng thành công</p>
+            <p id="content">Vui lòng bấm vào giỏ hàng để xem chi tiết</p>
+        </div>
+    </div>';
+    }
+    ?>
+
     <div class="cart">
         <div class="cart_header">
             <h1>Giỏ Hàng</h1>
@@ -49,49 +107,6 @@ if (!$conn) {
             </div>
 
             <?php
-            // Add book to cart
-            $total_all = 0;
-            if (isset($_POST['addToCart'])) {
-                $img_book = $_POST['img_book'];
-                $name_book = $_POST['name_book'];
-                $author_book = $_POST['author_book'];
-                $id_book = $_POST['id_book'];
-                $year_publish = $_POST['year_publish'];
-                $price_book = $_POST['price_book'];
-                $quantity = 1;
-                $id_customer = $_SESSION['id_customer'];
-
-                $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_book = '$id_book'");
-
-                if (mysqli_num_rows($select_cart) > 0) {
-                    $update_cart = mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_book'");
-                } else {
-                    $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
-                }
-            }
-
-            if (isset($_GET['remove'])) {
-                $remove_id = $_GET['remove'];
-                mysqli_query($conn, "DELETE FROM cart WHERE id_book = '$remove_id'") or die("Query failed");
-            }
-
-            if (isset($_POST['plus'])) {
-                $id_update = $_POST['id_update'];
-                mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_book = '$id_update'");
-            }
-
-            if (isset($_POST['minus'])) {
-                $id_update = $_POST['id_update'];
-                $qt = mysqli_query($conn, "SELECT quantity FROM cart WHERE id_book = '$id_update'");
-                $row = mysqli_fetch_assoc($qt);
-                $current_quantity = $row['quantity'];
-                if ($current_quantity > 1) {
-                    mysqli_query($conn, "UPDATE cart SET quantity = quantity - 1 WHERE id_book = '$id_update'");
-                } else {
-                    mysqli_query($conn, "DELETE FROM cart WHERE id_book = '$id_update'");
-                }
-            }
-
             $id_customer = $_SESSION['id_customer'];
             $select_all_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer");
             while ($row = mysqli_fetch_assoc($select_all_cart)) { ?>

@@ -49,3 +49,10 @@ if (saleInt < 1) {
     salePrice.style.margin = "0";
     salePrice.style.color = "black";
 }
+
+// message
+const mes = document.getElementById("message_box");
+mes.style.transform = "translateX(-15px)";
+setTimeout(function () {
+    mes.style.transform = "translateX(370px)";
+}, 3500);

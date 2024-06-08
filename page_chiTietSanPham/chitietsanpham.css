@@ -1,3 +1,39 @@
+.message_box {
+    position: fixed;
+    width: 370px;
+    height: 80px;
+    right: 0;
+    top: 100px;
+    background-color: #F6F6F6;
+    border-radius: 10px;
+    border-left: 5px solid #65b741;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.125);
+    transform: translateX(370px);
+    transition: all 0.4s ease;
+    transition-delay: 0.2s;
+    z-index: 9999;
+}
+.message_box i {
+    font-size: 28px;
+    color: #65b741;
+}
+.message_box .column_item {
+    margin-left: 15px;
+}
+.message_box .column_item #header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 5px;
+}
+.message_box .column_item #content {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
 /* the code for header */
 .nav {
     background-color: #464660;
@@ -42,9 +78,6 @@
 .nav .inner-icon ul li i {
     font-size: 25px;
     color: #fff;
-}
-.nav .inner-icon ul li:nth-child(2) {
-    margin-left: 15px;
 }
 .sale {
     background-color: #fcbd34;
