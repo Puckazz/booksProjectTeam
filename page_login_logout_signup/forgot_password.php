@@ -64,6 +64,7 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khôi phục mật khẩu!</title>
     <link rel="stylesheet" href="../styles/forgot.css">
+    <?php include '../loader/loader.php'; ?>
 </head>
 
 <body>
@@ -81,6 +82,7 @@ if ($conn->connect_error) {
             </div>
         </div>
     </form>
+    <script src="../loader/loader.js"></script>
 </body>
 
 </html>
