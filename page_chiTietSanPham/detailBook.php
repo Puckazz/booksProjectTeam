@@ -7,7 +7,7 @@ if (!$conn) {
 
 session_start();
 
-if (isset($_POST['addToCart'])) {
+if (isset($_POST['addToCart']) || isset($_POST['buyNow'])) {
   $img_book = $_POST['img_book'];
   $name_book = $_POST['name_book'];
   $author_book = $_POST['author_book'];
@@ -25,6 +25,10 @@ if (isset($_POST['addToCart'])) {
     $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
   }
 
+  if (isset($_POST['buyNow'])) {
+    header("Location: ../page_shop_cart/checkouts.php");
+    exit; // ngan chan ma khac thuc thi phia sau
+  }
   $message = "";
 }
 ?>
@@ -147,6 +151,7 @@ if (isset($_POST['addToCart'])) {
                 <span class="plus">+</span>
               </div> <input class="add-cart" type="submit" value="Thêm Vào Giỏ" name="addToCart"> </div>
 
+            <input type="submit" class="buy_now" value="Mua Ngay" name="buyNow">
             <input type="hidden" name="img_book" value="<?php echo $row['link']; ?>">
             <input type="hidden" name="name_book" value="<?php echo $row['name_book']; ?>">
             <input type="hidden" name="author_book" value="<?php echo $row['author_name']; ?>">

@@ -313,6 +313,24 @@ body {
 .inner-right .quantity .add-cart:active {
     opacity: 0.8;
 }
+.inner-right .buy_now {
+    background: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #c74b50;
+    border: 2px solid #c74b50;
+    width: 100%;
+    padding: 10px 0;
+    margin: 15px 0 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.inner-right .buy_now:hover {
+    color: #fff;
+    background-color: #c74b50;
+}
 /* code for icon  */
 .inner-right .fa-brands {
     border: 2px solid white;

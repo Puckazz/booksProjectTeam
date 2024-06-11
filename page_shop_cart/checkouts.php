@@ -24,6 +24,9 @@ if (isset($_POST['order'])) {
     $note = $_POST['note'];
 
     mysqli_query($conn, "INSERT INTO bill(name_customer, address, phone_number, date_of_bill, total, note) VALUES ('$name_customer', '$address', '$phone_number', '$date_order', $total, '$note')");
+    mysqli_query($conn, "UPDATE book INNER JOIN cart ON book.ID_Book = cart.id_book SET book.quantity_sold = book.quantity_sold + cart.quantity WHERE id_customer = $id_customer");
+    mysqli_query($conn, "UPDATE store INNER JOIN cart ON store.ID_Book = cart.id_book SET store.book_count = store.book_count - cart.quantity WHERE id_customer = $id_customer");
+
     mysqli_query($conn, "DELETE FROM cart WHERE id_customer = $id_customer");
 
     $message = 'Cảm ơn bạn đã mua hàng tại WAMPO. Đơn hàng sẽ sớm được giao đến tay bạn!';
