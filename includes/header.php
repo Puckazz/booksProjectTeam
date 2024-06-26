@@ -31,7 +31,7 @@ $id = $_SESSION['id_customer'];
               <li><a href="/booksProjectTeam/index.php">Trang Chủ</a></li>
               <li><a href="#section-three">Nổi bật</a></li>
               <li><a href="#">Khuyến Mãi</a></li>
-              <li><a href="/booksProjectTeam/page_sanPham/sanPhamWeb.php">Sản phẩm</a></li>
+              <li><a href="/booksProjectTeam/page_sanPham/allProduct.php">Sản phẩm</a></li>
               <li><a href="/booksProjectTeam/page_About_us/aboutUS.php">Liên Hệ</a></li>
             </ul>
           </div>

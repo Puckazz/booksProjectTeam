@@ -88,7 +88,6 @@
                 <td><label for="">Địa chỉ</label></td>
                 <td><input value="<?php echo $address?>" type="text" name="address"  id=""></td>
               </tr>
-             
             </tbody>
           </table>
           <button  value="true" name="submit" class="submit">Lưu</button>
@@ -96,5 +95,6 @@
       </div>
     </div>
     <?php require "../includes/footer.php" ?>
+    
   </body>
 </html>
