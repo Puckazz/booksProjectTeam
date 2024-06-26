@@ -1,3 +1,4 @@
+<!-- Kết nối database -->
 <?php
 $conn = mysqli_connect("localhost", "root", "", "bookdatabase");
 if (!$conn) {
@@ -6,12 +7,24 @@ if (!$conn) {
 
 $id = $_SESSION['id_customer'];
 ?>
+<?php
+  if(isset($_GET["search_btn"])){
+    $url = "/booksProjectTeam/page_sanPham/sanPham_search.php?name_book=".$_GET["name_book"];
+
+    header('location:'.$url);
+  }
+
+?>
+
 <div class="nav">
       <div class="container">
         <div class="inner-wrap">
           <div class="inner-logo"><img src="/booksProjectTeam/image/logoWP.png" alt="" /></div>
           <div class="inner-search">
-            <input placeholder="Search book" type="text" />
+           <form action="" method="get">
+            <input placeholder="Search book" type="text" name="name_book" />
+           <button class="search_btn" name="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
           </div>
           <div class="inner-menu">
             <ul>
@@ -32,6 +45,7 @@ $id = $_SESSION['id_customer'];
                   <i class="fa-solid fa-bag-shopping"></i>
                   <?php 
                   $qt = 0;
+                  $sql = "0";
                   $selectCart = mysqli_query($conn, "SELECT quantity FROM cart WHERE id_customer = $id");
                   if (mysqli_num_rows($selectCart) > 0) {
                     while ($num_cart = mysqli_fetch_assoc($selectCart)) {

@@ -1,3 +1,4 @@
+/* Message notification add product */
 .message_box {
     position: fixed;
     width: 370px;
@@ -33,7 +34,8 @@
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
 }
-
+/* end Message notification add product */
+/* nav */
 .nav {
   background-color: #464660;
   position: sticky;
@@ -52,10 +54,23 @@
   height: 80px;
   object-fit: cover;
 }
+.nav .inner-search {
+  position: relative;
+}
 .nav .inner-search input {
   padding: 10px;
   border-radius: 10px;
 }
+.nav .inner-search .search_btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 17px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
 .nav .inner-menu ul {
   display: flex;
   
@@ -104,6 +119,8 @@
   padding: 20px 0;
   text-align: center;
 }
+/*end nav */
+
 /* Section one */
 
 .section-one .inner-wrap {
@@ -275,6 +292,10 @@
   border-radius: 10px;
   font-weight: 600;
   justify-self: flex-end;
+  cursor: pointer;
+}
+.section-two .inner-box .inner-content .button:active {
+  transform: scale(0.9);
 }
 .section-two .inner-box .inner-content #price_wrapper {
   margin-top: auto;
