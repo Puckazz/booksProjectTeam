@@ -6,8 +6,9 @@ if (!$conn) {
 }
 
 session_start();
+$id_customer = $_SESSION['id_customer'];
 
-if (isset($_POST['addToCart'])) {
+if (isset($_POST['addToCart']) || isset($_POST['buyNow'])) {
   $img_book = $_POST['img_book'];
   $name_book = $_POST['name_book'];
   $author_book = $_POST['author_book'];
@@ -15,7 +16,6 @@ if (isset($_POST['addToCart'])) {
   $year_publish = $_POST['year_publish'];
   $price_book = $_POST['price_book'];
   $quantity = $_POST['quantity'];
-  $id_customer = $_SESSION['id_customer'];
 
   $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE id_customer = $id_customer AND id_book = '$id_book'");
 
@@ -25,6 +25,10 @@ if (isset($_POST['addToCart'])) {
     $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
   }
 
+  if (isset($_POST['buyNow'])) {
+    header("Location: ../page_shop_cart/checkouts.php");
+    exit; // ngan chan ma khac thuc thi phia sau
+  }
   $message = "";
 }
 ?>
@@ -92,7 +96,6 @@ if (isset($_POST['addToCart'])) {
     </div>
     <?php
     $qt = 1;
-
     if ($_SERVER["REQUEST_METHOD"] == "GET" || isset($_GET['showbook'])) {
       $show_book = $_GET['showbook'];
       $select_book = mysqli_query($conn, "SELECT book.ID_Book, book.name_book, book.discount, book.name_category_book, book.buyPrice, book.salePrice, book.year_publish, book.link, book.description_book, book.ID_tacgia, authors.author_name 
@@ -147,6 +150,7 @@ if (isset($_POST['addToCart'])) {
                 <span class="plus">+</span>
               </div> <input class="add-cart" type="submit" value="Thêm Vào Giỏ" name="addToCart"> </div>
 
+            <input type="submit" class="buy_now" value="Mua Ngay" name="buyNow">
             <input type="hidden" name="img_book" value="<?php echo $row['link']; ?>">
             <input type="hidden" name="name_book" value="<?php echo $row['name_book']; ?>">
             <input type="hidden" name="author_book" value="<?php echo $row['author_name']; ?>">

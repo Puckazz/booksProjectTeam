@@ -7,11 +7,6 @@ if (!$conn) {
 session_start();
 $id_customer = $_SESSION['id_customer'];
 
-$total_books = 0;
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
-    $total_books = $_POST['total_book'];
-}
-
 $select_customer = mysqli_query($conn, "SELECT * FROM customers WHERE ID_customer_new = $id_customer");
 if (isset($_POST['order'])) {
     $user = mysqli_fetch_assoc($select_customer);
@@ -24,6 +19,9 @@ if (isset($_POST['order'])) {
     $note = $_POST['note'];
 
     mysqli_query($conn, "INSERT INTO bill(name_customer, address, phone_number, date_of_bill, total, note) VALUES ('$name_customer', '$address', '$phone_number', '$date_order', $total, '$note')");
+    mysqli_query($conn, "UPDATE book INNER JOIN cart ON book.ID_Book = cart.id_book SET book.quantity_sold = book.quantity_sold + cart.quantity WHERE id_customer = $id_customer");
+    mysqli_query($conn, "UPDATE store INNER JOIN cart ON store.ID_Book = cart.id_book SET store.book_count = store.book_count - cart.quantity WHERE id_customer = $id_customer");
+
     mysqli_query($conn, "DELETE FROM cart WHERE id_customer = $id_customer");
 
     $message = 'Cảm ơn bạn đã mua hàng tại WAMPO. Đơn hàng sẽ sớm được giao đến tay bạn!';
@@ -74,7 +72,7 @@ if (isset($_POST['order'])) {
                 <label for="" class="form_label">Quốc gia/Khu vực*</label>
                 <span>Việt Nam</span>
                 <label for="" class="form_label">Địa chỉ*</label>
-                <input type="text" class="form_input" value="<?= $row['address']; ?>"/>
+                <input type="text" class="form_input" value="<?= $row['address']; ?>" />
             <?php
             }
             $note = "";
@@ -143,13 +141,15 @@ if (isset($_POST['order'])) {
                 </div>
             <?php
             }
+            $qr_cart = mysqli_query($conn, "SELECT SUM(price_book * quantity) AS total FROM cart WHERE id_customer = $id_customer");
+            $total_all = mysqli_fetch_assoc($qr_cart);
             ?>
             <div class="row_item discount_code">
                 <input type="text" placeholder="Mã giảm giá" class="form_input" id="voucher" />
                 <button type="submit" id="use_voucher">Sử dụng</button>
             </div>
             <div class="row_item item_2">
-                <span>Tạm tính</span> <span class="total"><?= $total_books; ?>000</span>
+                <span>Tạm tính</span> <span class="total"><?= $total_all['total']; ?>000</span>
             </div>
             <div class="row_item item_voucher" id="item_voucher"></div>
             <p class="shipping pad">Giao hàng</p>
@@ -161,7 +161,7 @@ if (isset($_POST['order'])) {
                 <input type="radio" name="ship" id="shipping-2" /> Đồng giá: 20,000 <u>đ</u>
             </div>
             <div class="row_item item_3">
-                <span>Tổng</span> <span class="total_all"><?= $total_books; ?>000</span>
+                <span>Tổng</span> <span class="total_all"><?= $total_all['total']; ?>000</span>
             </div>
             <p class="shipping pad">Phương thức thanh toán</p>
             <div class="method_pay">
@@ -187,7 +187,7 @@ if (isset($_POST['order'])) {
             <div class="row_item order_item">
                 <form action="" method="post">
                     <button type="submit" class="show_popup" name="order" onclick="copyNote()">Đặt hàng</button>
-                    <input id="totalInput" type="hidden" name="total" value="<?php echo $total_books; ?>">
+                    <input id="totalInput" type="hidden" name="total" value="<?php echo $total_all['total']; ?>">
                     <textarea name="note" id="content" style="display: none;"></textarea>
                 </form>
                 <p>

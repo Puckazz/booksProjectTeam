@@ -171,7 +171,6 @@ if (isset($_POST['minus'])) {
                     </div>
                 </div>
                 <form action="./checkouts.php" method="post" style="width: 100%;">
-                    <input type="hidden" name="total_book" value="<?php echo $total_all; ?>">
                     <button class="column_item pay_btn" type="submit" name="checkout">THANH TOÁN</button>
                 </form>
             </div>
