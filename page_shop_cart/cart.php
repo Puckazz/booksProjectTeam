@@ -25,8 +25,9 @@ if (isset($_POST['addToCart'])) {
     } else {
         $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
     }
-
-    $message = "";
+    $_SESSION['message'] = "";
+    header("Location: ./cart.php");
+    exit();
 }
 
 if (isset($_GET['remove'])) {
@@ -37,6 +38,9 @@ if (isset($_GET['remove'])) {
 if (isset($_POST['plus'])) {
     $id_update = $_POST['id_update'];
     mysqli_query($conn, "UPDATE cart SET quantity = quantity + 1 WHERE id_customer = $id_customer AND id_book = '$id_update'");
+
+    header("Location: ./cart.php");
+    exit();
 }
 
 if (isset($_POST['minus'])) {
@@ -49,6 +53,9 @@ if (isset($_POST['minus'])) {
     } else {
         mysqli_query($conn, "DELETE FROM cart WHERE id_customer = $id_customer AND id_book = '$id_update'");
     }
+
+    header("Location: ./cart.php");
+    exit();
 }
 ?>
 
@@ -77,14 +84,15 @@ if (isset($_POST['minus'])) {
 
     <!-- end header -->
     <?php
-    if (isset($message)) {
+    if (isset($_SESSION['message'])) {
         echo '<div class="message_box" id="message_box">
         <i class="bx bxs-check-circle"></i>
         <div class="column_item">
             <p id="header_title">Thêm vào giỏ hàng thành công</p>
-            <p id="content">Vui lòng bấm vào giỏ hàng để xem chi tiết</p>
+            <p id="content">Bạn đang ở giỏ hàng!</p>
         </div>
     </div>';
+        unset($_SESSION['message']);
     }
     ?>
 
@@ -152,7 +160,7 @@ if (isset($_POST['minus'])) {
 
         <div class="cart_checkout">
             <div class="btn_back">
-                <button onclick="window.location.href = '../page_sanPham/sanPhamWeb.php'">
+                <button onclick="window.location.href = '../page_sanPham/allProduct.php'">
                     <i class="bx bx-arrow-back"></i>
                     TIẾP TỤC XEM SẢN PHẨM
                 </button>
