@@ -52,6 +52,7 @@ if (!$_SESSION['is-login']) {
               <ul>
                 <li class="chude-list">Chủ đề
                   <ul>
+                    <li><a href="./allProduct.php">All Product</a></li>
                     <li><a href="./sanPhamWeb.php">Web Development</a></li>
                     <li><a href="./sanPhamGame.php">Game Programing</a></li>
                     <li><a href="./sanPhamMobileApp.php">Mobile-app Development</a></li>
@@ -59,6 +60,7 @@ if (!$_SESSION['is-login']) {
                     <li><a href="./sanPhamMachineLearningAndAI.php">Machine Learning</a></li>
                     <li><a href="./sanPhamSystemAdministration.php">System Administration</a></li>
                     <li><a class="a-active" href="./sanPhamDevops.php">DevOps</a></li>
+                   
                   </ul>
                 </li>
               </ul>

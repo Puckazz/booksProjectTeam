@@ -178,6 +178,15 @@ margin-bottom: 30px;
   font-size: 20px;
 }
 
+.inner-right .filter{
+  text-align: right;
+  padding-right: 40px;
+}
+.inner-right .filter .bt-loc{
+  padding: 3px 2px 2px 2px;
+  border-radius: 7px;
+}
+
 
 
 
@@ -248,11 +257,16 @@ margin-bottom: 30px;
   color: white;
 }
 .container-sanpham .inner-right .xemthem .circle-page {
-  background-color: #3F415D;
+  background-color: #45A834;
 }
 .container-sanpham .inner-right .xemthem a .circle-page:active{
   background-color: #45A834;
 }
+.container-sanpham .inner-right .xemthem a.active_page .circle-page {
+  background-color: #45A834;
+  color: white;
+}
+
 /* footer */
 .footter{
   background-color: #464660;
