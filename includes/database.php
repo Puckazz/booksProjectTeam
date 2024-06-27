@@ -1,51 +1,5 @@
 <?php
- function getDatabaseSanPham($category)
- {
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "bookdatabase";
-
-// Tạo kết nối MySQLi
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Kiểm tra kết nối MySQLi
-if ($conn->connect_error) {
-  die("Kết nối thất bại: " . $conn->connect_error);
-}
-
-// lấy dữ liệu từ database
-try {
-  // Tạo kết nối PDO
-  $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  // Truy vấn dữ liệu từ bảng sản phẩm
-  
-  $stmt = $pdo->query("SELECT 
-    ID_Book, name_book,
-    CONCAT(ROUND(discount * 100, 2), '%') AS discount_percentage,
-    buyPrice,
-    salePrice,
-    year_publish,
-    link ,
-    quantity_sold,
-    status
-FROM 
-    bookdatabase.book 
-WHERE 
-    name_category_book = '$category';
-");
-  $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  return $products;
-} catch (PDOException $e) {
-  echo 'Kết nối không thành công: ' . $e->getMessage();
-}
-
-// Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
-$conn->close();
- }
-
+ 
 
 function getConnect(){
   $servername = "localhost";
@@ -180,49 +134,6 @@ function update_password($token, $table, $data){
 }
 
 //ham lay so luong ban ghi 
-function getquantityProduct(){
-  
-  $servername = "localhost";
-  $dbusername = "root";
-  $dbpassword = "";
-  $dbname = "bookdatabase";
-  
-  // Tạo kết nối MySQLi
-  $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-  
-  // Kiểm tra kết nối MySQLi
-  if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-  }
-  
-  // lấy dữ liệu từ database
-  try {
-    // Tạo kết nối PDO
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  
-    // Truy vấn dữ liệu từ bảng sản phẩm
-    
-    $stmt = $pdo->query("
-    select * from book;
-  ");
-  $stmt->execute();
-    
-  $number =$stmt->rowCount();
-  return $number;
-  }
-  catch (PDOException $e) {
-    echo $e->getMessage();
-  }
- 
-  
-  // Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
-  $conn->close();
-  }
-
-
-
-  //
 
   function getProduct($start, $number_per_page, $where){
     $servername = "localhost";
@@ -239,10 +150,8 @@ function getquantityProduct(){
   }
   
   // lấy dữ liệu từ database
-  try {
-    // Tạo kết nối PDO
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    
   
     // Truy vấn dữ liệu từ bảng sản phẩm
     $query = "SELECT 
@@ -269,13 +178,11 @@ function getquantityProduct(){
   
   
     $query .= " LIMIT {$start}, {$number_per_page}";
-    $stmt = $pdo->query($query);
-    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $products;
-  } catch (PDOException $e) {
-    echo 'Kết nối không thành công: ' . $e->getMessage();
-  }
-  // Đóng kết nối MySQLi (không cần thiết nếu chỉ dùng PDO)
+    
+    
+  
+  
 $conn->close();
 }
+  
 
