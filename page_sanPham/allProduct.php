@@ -43,7 +43,7 @@ $product = mysqli_query($conn, "SELECT * FROM book $total_category");
 $number_product = mysqli_num_rows($product);
 
 //so luong san pham tren mot trang
-$number_per_page = 10;
+$number_per_page = 12;
 $total_row = $number_product;
 
 $num_page = ceil($total_row / $number_per_page);

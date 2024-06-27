@@ -22,12 +22,12 @@ $sql = "SELECT ID_Book, name_book,
     link ,
     quantity_sold,
     status FROM bookdatabase.book where name_book like '%{$name_book}%' order by name_book";
-$product = mysqli_query($conn, $sql);
-if (!$product) {
+$products = mysqli_query($conn, $sql);
+if (!$products) {
     die(mysqli_error($conn));
 } else {
     // số dòng được trả về
-    $num_row = mysqli_num_rows($product);
+    $num_row = mysqli_num_rows($products);
 }
 ?>
 <!DOCTYPE html>
@@ -65,14 +65,14 @@ if (!$product) {
                             <ul>
                                 <li class="chude-list">Chủ đề
                                     <ul>
-                                        <li><a class="a" href="./allProduct.php">All Product</a></li>
-                                        <li><a href="./sanPhamWeb.php">Web Development</a></li>
-                                        <li><a href="./sanPhamGame.php">Game Programing</a></li>
-                                        <li><a href="./sanPhamMobileApp.php">Mobile-app Development</a></li>
-                                        <li><a href="./sanPhamDataSience.php">Data Science</a></li>
-                                        <li><a href="./sanPhamMachineLearningAndAI.php">Machine Learning</a></li>
-                                        <li><a href="./sanPhamSystemAdministration.php">System Administration</a></li>
-                                        <li><a href="./sanPhamDevops.php">DevOps</a></li>
+                                    <li><a class="a-active" href="./allProduct.php">All Product</a></li>
+                                        <li><a href="allProduct.php?category=Web">Web Development</a></li>
+                                        <li><a href="allProduct.php?category=Game">Game Programing</a></li>
+                                        <li><a href="allProduct.php?category=Mobile App">Mobile-app Development</a></li>
+                                        <li><a href="allProduct.php?category=Data Science">Data Science</a></li>
+                                        <li><a href="allProduct.php?category=Machine Learning">Machine Learning</a></li>
+                                        <li><a href="allProduct.php?category=System Administration">System Administration</a></li>
+                                        <li><a href="allProduct.php?category=DevOps">DevOps</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -84,7 +84,7 @@ if (!$product) {
             <div class="inner-right">
                 <div class="products">
                     <!-- code ở đây -->
-                    <?php foreach ($product as  $product) {
+                    <?php foreach ($products as  $product) {
 
                     ?>
                         <div class="product">
