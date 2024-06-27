@@ -14,7 +14,6 @@ if (isset($_GET['category'])) {
 $where = "";
 if (isset($_GET['bt-loc'])) {
     $selected_price = $_GET['gia'];
-    echo $selected_price;
     if ($selected_price != "") {
         switch ($selected_price) {
             case "<200":
@@ -146,6 +145,7 @@ if (!$_SESSION['is-login']) {
                             <option value="<200">nhỏ hơn 200</option>
                             <option value="500-1000">500-1000</option>
                             <option value=">1000">lớn hơn 1000</option>
+                            <input type="hidden" name="category" value="<?php echo $category ?>">
                         </select>
                         <span> <input type="submit" value="LỌC" name="bt-loc"></span>
                     </form>
@@ -206,7 +206,7 @@ if (!$_SESSION['is-login']) {
 
                 <div class="xemthem">
                     <?php for ($i = 1; $i <= $num_page; $i++) { ?>
-                        <a href="?category=<?php echo $category ?>&page=<?php echo $i; ?>" class="<?php echo $page == $i ? 'active_page' : ''; ?>">
+                        <a href="?category=<?php echo $category ?>&page=<?php echo $i; ?>" class="<?php echo $page == $i ?>">
                             <div class="circle-page"><?php echo $i; ?></div>
                         </a>
                     <?php } ?>
