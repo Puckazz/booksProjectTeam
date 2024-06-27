@@ -78,14 +78,13 @@ if (isset($_POST['addToCart']) || isset($_POST['buyNow'])) {
             <ul>
               <li class="chude-list">Chủ đề
                 <ul>
-                  <li><a href="../page_sanPham/sanPhamWeb.php">Web Development</a></li>
-                  <li><a href="../page_sanPham/sanPhamGame.php">Game Programing</a></li>
-                  <li><a href="../page_sanPham/sanPhamMobileApp.php">Mobile-app Development</a></li>
-                  <li><a href="../page_sanPham/sanPhamDataSience.php">Data Science</a></li>
-                  <li><a href="../page_sanPham/sanPhamMachineLearningAndAI.php">Machine Learning</a></li>
-                  <li><a href="../page_sanPham/sanPhamSystemAdministration.php">System Administration</a></li>
-                  <li><a href="../page_sanPham/sanPhamDevops.php">DevOps</a></li>
-                </ul>
+                  <li><a href="..\page_sanPham\allProduct.php?category=Web">Web Development</a></li>
+                  <li><a href="..\page_sanPham\allProduct.php?category=Game">Game Programing</a></li>
+                  <li><a href="..\page_sanPham\allProduct.php?category=Mobile App">Mobile-app Development</a></li>
+                  <li><a href="..\page_sanPham\allProduct.php?category=Data Science">Data Science</a></li>
+                  <li><a href="..\page_sanPham\allProduct.php?category=Machine Learning">Machine Learning</a></li>
+                  <li><a href="..\page_sanPham\allProduct.php?category=System Administration">System Administration</a></li>
+                  <li><a href="..\page_sanPham\allProduct.php?category=DevOps">DevOps</a></li>
               </li>
               <li class="type-book">Thể loại</li>
               <li class="news-book">Tin tức mới</li>
