@@ -25,11 +25,11 @@ if (isset($_POST['addToCart']) || isset($_POST['buyNow'])) {
     $insert_cart = mysqli_query($conn, "INSERT INTO cart(id_book, name_book, img_book, author_book, year_publish, price_book, quantity, id_customer) VALUES ('$id_book', '$name_book', '$img_book', '$author_book', $year_publish, $price_book, $quantity, $id_customer)");
   }
 
+  $message = "";
   if (isset($_POST['buyNow'])) {
     header("Location: ../page_shop_cart/checkouts.php");
     exit; // ngan chan ma khac thuc thi phia sau
   }
-  $message = "";
 }
 ?>
 

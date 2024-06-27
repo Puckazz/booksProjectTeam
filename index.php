@@ -90,7 +90,7 @@ if (isset($_POST['addToCart'])) {
               hundreds of books with all possible categories, take advantage
               of the 50% discount and much more
             </div>
-            <div><a class="button1" href="./page_sanPham/sanPhamMachineLearningAndAI.php">Shop Now</a></div>
+            <div><a class="button1" href="./page_sanPham/allProduct.php">Shop Now</a></div>
           </div>
         </div>
       </div>
