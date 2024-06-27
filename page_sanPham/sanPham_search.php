@@ -65,7 +65,7 @@ if (!$products) {
                             <ul>
                                 <li class="chude-list">Chủ đề
                                     <ul>
-                                    <li><a class="a-active" href="./allProduct.php">All Product</a></li>
+                                        <li><a href="./allProduct.php">All Product</a></li>
                                         <li><a href="allProduct.php?category=Web">Web Development</a></li>
                                         <li><a href="allProduct.php?category=Game">Game Programing</a></li>
                                         <li><a href="allProduct.php?category=Mobile App">Mobile-app Development</a></li>
