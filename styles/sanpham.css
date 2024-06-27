@@ -88,10 +88,8 @@ margin-left: 50px
   color: black;
   font-size: 20px;
 }
-.nav-book .sach-list .chude-list ul li .a-active{
-color: fuchsia;
-}
-.nav-book .sach-list .chude-list ul li a:active{
+
+.nav-book .sach-list .chude-list ul li a:hover{
   color: fuchsia;
 }
 .nav-book .sach-list .chude-list ul li{
